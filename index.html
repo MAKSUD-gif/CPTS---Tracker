@@ -9,53 +9,40 @@
 :root{--bg:#f4f6f9;--surf:#fff;--surf2:#f0f3f7;--bdr:#dde3ec;--bdr2:#c8d0dc;--text:#1a2535;--sub:#5a6a80;--muted:#8fa0b5;--accent:#1d6fa4;--accent-lt:#e8f2fa;--htb:#1d8348;--green:#1a7a3c;--green-bg:#eaf6ee;--green-bdr:#82c99a;--red:#c0392b;--red-bg:#fdf0ee;--red-bdr:#e8a09a;--orange:#c87a00;--plan-bg:#dbeeff;--plan-bdr:#5baee8;--lw:272px;--rh:40px;--hh:64px}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased}
-/* APPBAR */
 .appbar{background:var(--surf);border-bottom:1px solid var(--bdr);padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.06)}
 .ab-left{display:flex;align-items:center;gap:12px}
-.htb-badge{background:var(--htb);color:#fff;font-family:"Rajdhani",sans-serif;font-weight:700;font-size:11px;padding:5px 11px;border-radius:4px;letter-spacing:2.5px;flex-shrink:0}
+.htb-badge{background:var(--htb);color:#fff;font-family:"Rajdhani",sans-serif;font-weight:700;font-size:11px;padding:5px 11px;border-radius:4px;letter-spacing:2.5px}
 .ab-title{font-family:"Rajdhani",sans-serif;font-size:18px;font-weight:700;color:var(--text);line-height:1.1}
 .ab-title small{display:block;font-size:9px;font-weight:400;color:var(--muted);letter-spacing:1.6px;text-transform:uppercase;margin-top:2px}
-.ab-right{display:flex;align-items:center;gap:10px}
+.ab-right{display:flex;align-items:center;gap:8px}
 .ab-stats{display:flex;gap:6px}
 .stat{padding:0 12px;min-width:70px;border:1px solid var(--bdr);border-radius:6px;background:var(--surf2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;height:38px}
 .stat .v{font-family:"Rajdhani",sans-serif;font-size:17px;font-weight:700;line-height:1;color:var(--accent)}
 .stat .l{font-size:7px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-weight:500}
-/* SYNC STATUS */
-.sync-bar{display:flex;align-items:center;gap:8px;font-size:10px;color:var(--muted);background:var(--surf2);border:1px solid var(--bdr);border-radius:6px;padding:0 12px;height:38px;white-space:nowrap}
+.sync-bar{display:flex;align-items:center;gap:7px;font-size:10px;color:var(--muted);background:var(--surf2);border:1px solid var(--bdr);border-radius:6px;padding:0 12px;height:38px;white-space:nowrap;min-width:140px}
 .sync-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;background:var(--bdr2)}
 .sync-dot.ok{background:var(--green);box-shadow:0 0 5px var(--green)}
 .sync-dot.err{background:var(--red)}
 .sync-dot.spin{background:var(--orange);animation:blink 1s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-/* SETUP OVERLAY */
-.setup-overlay{position:fixed;inset:0;background:rgba(10,20,40,.6);z-index:1000;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
-.setup-box{background:var(--surf);border:1px solid var(--bdr);border-radius:14px;padding:32px 36px;width:500px;max-width:95vw;box-shadow:0 8px 40px rgba(0,0,0,.18)}
-.setup-box h2{font-family:"Rajdhani",sans-serif;font-size:22px;font-weight:700;color:var(--text);margin-bottom:6px}
-.setup-box p{font-size:11px;color:var(--sub);line-height:1.7;margin-bottom:18px}
-.setup-box .step{background:var(--surf2);border:1px solid var(--bdr);border-radius:6px;padding:10px 14px;margin-bottom:10px;font-size:10.5px;color:var(--sub);line-height:1.6}
-.setup-box .step b{color:var(--text)}
-.setup-box .step a{color:var(--accent);text-decoration:none;font-weight:600}
-.setup-box .step a:hover{text-decoration:underline}
-.sinput{width:100%;background:var(--surf);border:1px solid var(--bdr2);border-radius:5px;padding:9px 12px;color:var(--text);font-family:"DM Sans",sans-serif;font-size:12px;outline:none;margin-top:6px;transition:border-color .12s;color-scheme:light}
-.sinput:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(29,111,164,.1)}
-.slbl{display:block;font-size:9px;color:var(--sub);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-top:14px;margin-bottom:4px}
-.setup-err{font-size:10px;color:var(--red);margin-top:6px;min-height:16px}
-.sbtn{font-family:"DM Sans",sans-serif;font-size:11px;font-weight:700;padding:10px 22px;border-radius:6px;cursor:pointer;border:none;background:var(--accent);color:#fff;margin-top:16px;transition:background .12s;width:100%}
-.sbtn:hover{background:#186091}
-.sbtn:disabled{background:var(--muted);cursor:not-allowed}
-/* PROGRESS */
+/* TOKEN BAR */
+.token-bar{background:#fffbea;border-bottom:2px solid #f0d060;padding:8px 20px;display:flex;align-items:center;gap:10px;font-size:10.5px;color:#7a5a00;flex-wrap:wrap}
+.token-bar b{color:#4a3000}
+.token-bar input{flex:1;min-width:200px;border:1px solid #e0c050;border-radius:5px;padding:6px 10px;font-size:11px;color:var(--text);background:#fff;outline:none;font-family:"DM Sans",sans-serif}
+.token-bar input:focus{border-color:var(--accent)}
+.token-bar button{font-family:"DM Sans",sans-serif;font-size:10.5px;font-weight:700;padding:6px 16px;border-radius:5px;cursor:pointer;border:none;background:var(--accent);color:#fff;white-space:nowrap}
+.token-bar a{color:var(--accent);font-weight:600;white-space:nowrap}
+.token-bar .t-err{color:var(--red);font-size:9.5px}
 .prog-strip{background:var(--surf);border-bottom:1px solid var(--bdr);padding:9px 20px;display:flex;align-items:center;gap:12px}
 .prog-pct{font-family:"Rajdhani",sans-serif;font-size:16px;font-weight:700;color:var(--green);min-width:44px}
 .prog-track{flex:1;height:6px;background:var(--surf2);border-radius:4px;border:1px solid var(--bdr);overflow:hidden}
 .prog-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--green));border-radius:4px;transition:width .5s}
 .prog-info{font-size:9.5px;color:var(--sub);text-align:right;line-height:1.6;white-space:nowrap}
 .prog-info b{color:var(--orange);font-weight:600}
-/* LEGEND */
 .legend{background:var(--surf2);border-bottom:1px solid var(--bdr);padding:7px 20px;display:flex;gap:20px;flex-wrap:wrap;align-items:center}
 .leg{display:flex;align-items:center;gap:7px;font-size:9px;color:var(--sub);text-transform:uppercase;letter-spacing:.5px;font-weight:500}
 .leg-sw{width:26px;height:7px;border-radius:3px}
 .leg-line{width:2px;height:13px}
-/* GANTT */
 .gantt-outer{overflow-x:auto;padding:18px 20px 0}
 .gantt-inner{display:flex;min-width:1100px;background:var(--surf);border-radius:6px 6px 0 0;border:1px solid var(--bdr);box-shadow:0 1px 4px rgba(0,0,0,.07)}
 .g-labels{width:var(--lw);flex-shrink:0;border-right:1px solid var(--bdr);position:sticky;left:0;z-index:20;background:var(--surf)}
@@ -64,9 +51,7 @@ body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min
 .g-lrow{height:var(--rh);display:flex;align-items:center;padding:0 10px;gap:6px;border-bottom:1px solid var(--bdr);cursor:pointer;transition:background .1s}
 .g-lrow:hover{background:#f0f6ff}
 .sdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-.sdot.idle{background:var(--bdr2)}
-.sdot.good{background:var(--green);box-shadow:0 0 4px var(--green)}
-.sdot.late{background:var(--red);box-shadow:0 0 4px var(--red)}
+.sdot.idle{background:var(--bdr2)}.sdot.good{background:var(--green);box-shadow:0 0 4px var(--green)}.sdot.late{background:var(--red);box-shadow:0 0 4px var(--red)}
 .g-num{font-size:9px;color:var(--muted);min-width:15px;text-align:right;font-weight:500}
 .g-name{font-size:10.5px;color:var(--text);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .g-hrs{font-size:9px;color:var(--sub);background:var(--surf2);border:1px solid var(--bdr);padding:1px 5px;border-radius:3px;font-weight:500}
@@ -97,15 +82,13 @@ body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min
 .tt-r{display:flex;justify-content:space-between;gap:12px;margin:2.5px 0}
 .tt-k{color:var(--muted)}.tt-v{color:var(--accent);font-weight:500}
 .tt-v.g{color:var(--green)}.tt-v.r{color:var(--red)}.tt-v.n{color:var(--sub)}
-.tt-div{border:none;border-top:1px solid var(--bdr);margin:5px 0}
-.tt-hint{font-size:8px;color:var(--muted);font-style:italic;margin-top:4px}
 .mbg{position:fixed;inset:0;background:rgba(10,20,40,.45);z-index:500;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .18s;backdrop-filter:blur(4px)}
 .mbg.open{opacity:1;pointer-events:all}
 .modal{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:24px 26px;width:430px;max-width:95vw;box-shadow:0 4px 24px rgba(0,0,0,.12);transform:translateY(10px);transition:transform .18s}
 .mbg.open .modal{transform:translateY(0)}
 .mhdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
 .mhdr h2{font-family:"Rajdhani",sans-serif;font-size:19px;font-weight:700;color:var(--text)}
-.mcls{background:none;border:none;color:var(--muted);font-size:18px;cursor:pointer;padding:4px 8px;border-radius:4px;line-height:1}
+.mcls{background:none;border:none;color:var(--muted);font-size:18px;cursor:pointer;padding:4px 8px;border-radius:4px}
 .mcls:hover{background:var(--surf2)}
 .mmod{background:var(--accent-lt);border:1px solid #bcdaf3;border-radius:5px;padding:9px 12px;font-size:11px;color:var(--accent);margin-bottom:12px;font-weight:500}
 .minfo{background:var(--surf2);border-left:3px solid var(--bdr2);padding:8px 12px;border-radius:0 5px 5px 0;font-size:10.5px;color:var(--sub);margin-bottom:14px;line-height:1.7}
@@ -138,37 +121,20 @@ body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min
 .tbtn.done{border-color:var(--green-bdr);color:var(--green);background:var(--green-bg)}
 .footer{border-top:1px solid var(--bdr);background:var(--surf);padding:12px 20px;text-align:center;font-size:9.5px;color:var(--muted)}
 .footer a{color:var(--accent);text-decoration:none;font-weight:500}
-::-webkit-scrollbar{width:6px;height:6px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--bdr2);border-radius:4px}
+::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--bdr2);border-radius:4px}
 </style>
 </head>
 <body>
 
-<!-- ── SETUP OVERLAY (shown if not configured) ── -->
-<div class="setup-overlay" id="setup-overlay">
-  <div class="setup-box">
-    <h2>&#128274; One-time Setup</h2>
-    <p>This tracker uses <b>JSONBin.io</b> as shared storage — free, no server needed.<br>
-    Complete these steps once. After that, everyone sees the same data automatically.</p>
-
-    <div class="step">
-      <b>Step 1.</b> Go to <a href="https://jsonbin.io" target="_blank">jsonbin.io</a> &rarr; Sign up free &rarr; Go to <b>API Keys</b> &rarr; copy your <b>Master Key</b>
-    </div>
-    <div class="step">
-      <b>Step 2.</b> Paste the Master Key below and click <b>Connect</b>.<br>
-      A shared storage space will be created automatically.
-    </div>
-
-    <label class="slbl" for="s-key">Master Key (from JSONBin dashboard)</label>
-    <input class="sinput" id="s-key" type="password" placeholder="$2a$10$...">
-    <div class="setup-err" id="setup-err"></div>
-
-    <button class="sbtn" id="setup-btn" onclick="doSetup()">Connect &amp; Start</button>
-  </div>
+<!-- TOKEN BAR — only for editors (student/instructor). Viewers see nothing here. -->
+<div class="token-bar" id="token-bar" style="display:none">
+  <b>Editing:</b>
+  <span>Paste your GitHub token to unlock editing &mdash; <a href="https://github.com/settings/tokens/new?description=CPTS+Tracker&scopes=repo" target="_blank">Get token here</a></span>
+  <input type="password" id="token-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+  <button onclick="activateToken()">Unlock</button>
+  <span class="t-err" id="token-err"></span>
 </div>
 
-<!-- ── APP BAR ── -->
 <header class="appbar">
   <div class="ab-left">
     <div class="htb-badge">HTB</div>
@@ -184,9 +150,9 @@ body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min
       <div class="stat"><div class="v" id="sv-rem">31</div><div class="l">Remain</div></div>
       <div class="stat"><div class="v" id="sv-days" style="color:var(--orange)">176</div><div class="l">Days Left</div></div>
     </div>
-    <div class="sync-bar" id="sync-bar">
+    <div class="sync-bar">
       <div class="sync-dot" id="sync-dot"></div>
-      <span id="sync-txt">Connecting...</span>
+      <span id="sync-txt">Loading...</span>
     </div>
   </div>
 </header>
@@ -209,7 +175,7 @@ body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min
   <div class="gantt-inner">
     <div class="g-labels">
       <div class="g-lhdr"><span>Module &amp; Hours</span></div>
-      <div class="g-lrow" data-id="1" onclick="openModal(1)" onmouseenter="showTT(event,1)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-1"></span><span class="g-num">1</span><span class="g-name" title="Penetration Testing Process">Penetration Testing Process</span><span class="g-hrs">7.9h</span></div><div class="g-lrow" data-id="2" onclick="openModal(2)" onmouseenter="showTT(event,2)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-2"></span><span class="g-num">2</span><span class="g-name" title="Getting Started">Getting Started</span><span class="g-hrs">6.5h</span></div><div class="g-lrow" data-id="3" onclick="openModal(3)" onmouseenter="showTT(event,3)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-3"></span><span class="g-num">3</span><span class="g-name" title="Network Enumeration With Nmap">Network Enumeration With Nmap</span><span class="g-hrs">3.5h</span></div><div class="g-lrow" data-id="4" onclick="openModal(4)" onmouseenter="showTT(event,4)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-4"></span><span class="g-num">4</span><span class="g-name" title="Footprinting">Footprinting</span><span class="g-hrs">18.0h</span></div><div class="g-lrow" data-id="5" onclick="openModal(5)" onmouseenter="showTT(event,5)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-5"></span><span class="g-num">5</span><span class="g-name" title="Information Gathering - Web">Information Gathering - Web</span><span class="g-hrs">4.2h</span></div><div class="g-lrow" data-id="6" onclick="openModal(6)" onmouseenter="showTT(event,6)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-6"></span><span class="g-num">6</span><span class="g-name" title="Vulnerability Assessment">Vulnerability Assessment</span><span class="g-hrs">2.4h</span></div><div class="g-lrow" data-id="7" onclick="openModal(7)" onmouseenter="showTT(event,7)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-7"></span><span class="g-num">7</span><span class="g-name" title="File Transfers">File Transfers</span><span class="g-hrs">4.6h</span></div><div class="g-lrow" data-id="8" onclick="openModal(8)" onmouseenter="showTT(event,8)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-8"></span><span class="g-num">8</span><span class="g-name" title="Shells & Payloads">Shells & Payloads</span><span class="g-hrs">5.1h</span></div><div class="g-lrow" data-id="9" onclick="openModal(9)" onmouseenter="showTT(event,9)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-9"></span><span class="g-num">9</span><span class="g-name" title="Using The Metasploit Framework">Using The Metasploit Framework</span><span class="g-hrs">5.0h</span></div><div class="g-lrow" data-id="10" onclick="openModal(10)" onmouseenter="showTT(event,10)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-10"></span><span class="g-num">10</span><span class="g-name" title="Password Attacks">Password Attacks</span><span class="g-hrs">19.5h</span></div><div class="g-lrow" data-id="11" onclick="openModal(11)" onmouseenter="showTT(event,11)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-11"></span><span class="g-num">11</span><span class="g-name" title="Windows Fundamentals">Windows Fundamentals</span><span class="g-hrs">2.5h</span></div><div class="g-lrow" data-id="12" onclick="openModal(12)" onmouseenter="showTT(event,12)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-12"></span><span class="g-num">12</span><span class="g-name" title="Intro to Active Directory">Intro to Active Directory</span><span class="g-hrs">3.6h</span></div><div class="g-lrow" data-id="13" onclick="openModal(13)" onmouseenter="showTT(event,13)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-13"></span><span class="g-num">13</span><span class="g-name" title="Attacking Common Services">Attacking Common Services</span><span class="g-hrs">7.2h</span></div><div class="g-lrow" data-id="14" onclick="openModal(14)" onmouseenter="showTT(event,14)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-14"></span><span class="g-num">14</span><span class="g-name" title="Pivoting, Tunneling & Port Fwd">Pivoting, Tunneling & Port Fwd</span><span class="g-hrs">13.4h</span></div><div class="g-lrow" data-id="15" onclick="openModal(15)" onmouseenter="showTT(event,15)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-15"></span><span class="g-num">15</span><span class="g-name" title="Active Directory Enum & Attacks">Active Directory Enum & Attacks</span><span class="g-hrs">38.1h</span></div><div class="g-lrow" data-id="16" onclick="openModal(16)" onmouseenter="showTT(event,16)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-16"></span><span class="g-num">16</span><span class="g-name" title="Using Web Proxies">Using Web Proxies</span><span class="g-hrs">1.8h</span></div><div class="g-lrow" data-id="17" onclick="openModal(17)" onmouseenter="showTT(event,17)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-17"></span><span class="g-num">17</span><span class="g-name" title="Attacking Web Apps w/ FFUF">Attacking Web Apps w/ FFUF</span><span class="g-hrs">1.8h</span></div><div class="g-lrow" data-id="18" onclick="openModal(18)" onmouseenter="showTT(event,18)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-18"></span><span class="g-num">18</span><span class="g-name" title="Login Brute Forcing">Login Brute Forcing</span><span class="g-hrs">1.2h</span></div><div class="g-lrow" data-id="19" onclick="openModal(19)" onmouseenter="showTT(event,19)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-19"></span><span class="g-num">19</span><span class="g-name" title="SQL Injection Fundamentals">SQL Injection Fundamentals</span><span class="g-hrs">2.9h</span></div><div class="g-lrow" data-id="20" onclick="openModal(20)" onmouseenter="showTT(event,20)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-20"></span><span class="g-num">20</span><span class="g-name" title="SQLMap Essentials">SQLMap Essentials</span><span class="g-hrs">2.4h</span></div><div class="g-lrow" data-id="21" onclick="openModal(21)" onmouseenter="showTT(event,21)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-21"></span><span class="g-num">21</span><span class="g-name" title="Cross-Site Scripting (XSS)">Cross-Site Scripting (XSS)</span><span class="g-hrs">2.4h</span></div><div class="g-lrow" data-id="22" onclick="openModal(22)" onmouseenter="showTT(event,22)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-22"></span><span class="g-num">22</span><span class="g-name" title="File Inclusion">File Inclusion</span><span class="g-hrs">3.7h</span></div><div class="g-lrow" data-id="23" onclick="openModal(23)" onmouseenter="showTT(event,23)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-23"></span><span class="g-num">23</span><span class="g-name" title="File Upload Attacks">File Upload Attacks</span><span class="g-hrs">4.6h</span></div><div class="g-lrow" data-id="24" onclick="openModal(24)" onmouseenter="showTT(event,24)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-24"></span><span class="g-num">24</span><span class="g-name" title="Command Injections">Command Injections</span><span class="g-hrs">2.8h</span></div><div class="g-lrow" data-id="25" onclick="openModal(25)" onmouseenter="showTT(event,25)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-25"></span><span class="g-num">25</span><span class="g-name" title="Web Attacks">Web Attacks</span><span class="g-hrs">5.2h</span></div><div class="g-lrow" data-id="26" onclick="openModal(26)" onmouseenter="showTT(event,26)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-26"></span><span class="g-num">26</span><span class="g-name" title="Attacking Common Applications">Attacking Common Applications</span><span class="g-hrs">13.6h</span></div><div class="g-lrow" data-id="27" onclick="openModal(27)" onmouseenter="showTT(event,27)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-27"></span><span class="g-num">27</span><span class="g-name" title="Linux Privilege Escalation">Linux Privilege Escalation</span><span class="g-hrs">13.2h</span></div><div class="g-lrow" data-id="28" onclick="openModal(28)" onmouseenter="showTT(event,28)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-28"></span><span class="g-num">28</span><span class="g-name" title="Using CrackMapExec">Using CrackMapExec</span><span class="g-hrs">14.7h</span></div><div class="g-lrow" data-id="29" onclick="openModal(29)" onmouseenter="showTT(event,29)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-29"></span><span class="g-num">29</span><span class="g-name" title="Windows Privilege Escalation">Windows Privilege Escalation</span><span class="g-hrs">17.9h</span></div><div class="g-lrow" data-id="30" onclick="openModal(30)" onmouseenter="showTT(event,30)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-30"></span><span class="g-num">30</span><span class="g-name" title="Documentation and Reporting">Documentation and Reporting</span><span class="g-hrs">4.8h</span></div><div class="g-lrow" data-id="31" onclick="openModal(31)" onmouseenter="showTT(event,31)" onmouseleave="hideTT()"><span class="sdot idle" id="dot-31"></span><span class="g-num">31</span><span class="g-name" title="Attacking Enterprise Networks">Attacking Enterprise Networks</span><span class="g-hrs">24.6h</span></div>
+      <div class="g-lrow" data-id="1"><span class="sdot idle" id="dot-1"></span><span class="g-num">1</span><span class="g-name" title="Penetration Testing Process">Penetration Testing Process</span><span class="g-hrs">7.9h</span></div><div class="g-lrow" data-id="2"><span class="sdot idle" id="dot-2"></span><span class="g-num">2</span><span class="g-name" title="Getting Started">Getting Started</span><span class="g-hrs">6.5h</span></div><div class="g-lrow" data-id="3"><span class="sdot idle" id="dot-3"></span><span class="g-num">3</span><span class="g-name" title="Network Enumeration With Nmap">Network Enumeration With Nmap</span><span class="g-hrs">3.5h</span></div><div class="g-lrow" data-id="4"><span class="sdot idle" id="dot-4"></span><span class="g-num">4</span><span class="g-name" title="Footprinting">Footprinting</span><span class="g-hrs">18.0h</span></div><div class="g-lrow" data-id="5"><span class="sdot idle" id="dot-5"></span><span class="g-num">5</span><span class="g-name" title="Information Gathering - Web">Information Gathering - Web</span><span class="g-hrs">4.2h</span></div><div class="g-lrow" data-id="6"><span class="sdot idle" id="dot-6"></span><span class="g-num">6</span><span class="g-name" title="Vulnerability Assessment">Vulnerability Assessment</span><span class="g-hrs">2.4h</span></div><div class="g-lrow" data-id="7"><span class="sdot idle" id="dot-7"></span><span class="g-num">7</span><span class="g-name" title="File Transfers">File Transfers</span><span class="g-hrs">4.6h</span></div><div class="g-lrow" data-id="8"><span class="sdot idle" id="dot-8"></span><span class="g-num">8</span><span class="g-name" title="Shells & Payloads">Shells & Payloads</span><span class="g-hrs">5.1h</span></div><div class="g-lrow" data-id="9"><span class="sdot idle" id="dot-9"></span><span class="g-num">9</span><span class="g-name" title="Using The Metasploit Framework">Using The Metasploit Framework</span><span class="g-hrs">5.0h</span></div><div class="g-lrow" data-id="10"><span class="sdot idle" id="dot-10"></span><span class="g-num">10</span><span class="g-name" title="Password Attacks">Password Attacks</span><span class="g-hrs">19.5h</span></div><div class="g-lrow" data-id="11"><span class="sdot idle" id="dot-11"></span><span class="g-num">11</span><span class="g-name" title="Windows Fundamentals">Windows Fundamentals</span><span class="g-hrs">2.5h</span></div><div class="g-lrow" data-id="12"><span class="sdot idle" id="dot-12"></span><span class="g-num">12</span><span class="g-name" title="Intro to Active Directory">Intro to Active Directory</span><span class="g-hrs">3.6h</span></div><div class="g-lrow" data-id="13"><span class="sdot idle" id="dot-13"></span><span class="g-num">13</span><span class="g-name" title="Attacking Common Services">Attacking Common Services</span><span class="g-hrs">7.2h</span></div><div class="g-lrow" data-id="14"><span class="sdot idle" id="dot-14"></span><span class="g-num">14</span><span class="g-name" title="Pivoting, Tunneling & Port Fwd">Pivoting, Tunneling & Port Fwd</span><span class="g-hrs">13.4h</span></div><div class="g-lrow" data-id="15"><span class="sdot idle" id="dot-15"></span><span class="g-num">15</span><span class="g-name" title="Active Directory Enum & Attacks">Active Directory Enum & Attacks</span><span class="g-hrs">38.1h</span></div><div class="g-lrow" data-id="16"><span class="sdot idle" id="dot-16"></span><span class="g-num">16</span><span class="g-name" title="Using Web Proxies">Using Web Proxies</span><span class="g-hrs">1.8h</span></div><div class="g-lrow" data-id="17"><span class="sdot idle" id="dot-17"></span><span class="g-num">17</span><span class="g-name" title="Attacking Web Apps w/ FFUF">Attacking Web Apps w/ FFUF</span><span class="g-hrs">1.8h</span></div><div class="g-lrow" data-id="18"><span class="sdot idle" id="dot-18"></span><span class="g-num">18</span><span class="g-name" title="Login Brute Forcing">Login Brute Forcing</span><span class="g-hrs">1.2h</span></div><div class="g-lrow" data-id="19"><span class="sdot idle" id="dot-19"></span><span class="g-num">19</span><span class="g-name" title="SQL Injection Fundamentals">SQL Injection Fundamentals</span><span class="g-hrs">2.9h</span></div><div class="g-lrow" data-id="20"><span class="sdot idle" id="dot-20"></span><span class="g-num">20</span><span class="g-name" title="SQLMap Essentials">SQLMap Essentials</span><span class="g-hrs">2.4h</span></div><div class="g-lrow" data-id="21"><span class="sdot idle" id="dot-21"></span><span class="g-num">21</span><span class="g-name" title="Cross-Site Scripting (XSS)">Cross-Site Scripting (XSS)</span><span class="g-hrs">2.4h</span></div><div class="g-lrow" data-id="22"><span class="sdot idle" id="dot-22"></span><span class="g-num">22</span><span class="g-name" title="File Inclusion">File Inclusion</span><span class="g-hrs">3.7h</span></div><div class="g-lrow" data-id="23"><span class="sdot idle" id="dot-23"></span><span class="g-num">23</span><span class="g-name" title="File Upload Attacks">File Upload Attacks</span><span class="g-hrs">4.6h</span></div><div class="g-lrow" data-id="24"><span class="sdot idle" id="dot-24"></span><span class="g-num">24</span><span class="g-name" title="Command Injections">Command Injections</span><span class="g-hrs">2.8h</span></div><div class="g-lrow" data-id="25"><span class="sdot idle" id="dot-25"></span><span class="g-num">25</span><span class="g-name" title="Web Attacks">Web Attacks</span><span class="g-hrs">5.2h</span></div><div class="g-lrow" data-id="26"><span class="sdot idle" id="dot-26"></span><span class="g-num">26</span><span class="g-name" title="Attacking Common Applications">Attacking Common Applications</span><span class="g-hrs">13.6h</span></div><div class="g-lrow" data-id="27"><span class="sdot idle" id="dot-27"></span><span class="g-num">27</span><span class="g-name" title="Linux Privilege Escalation">Linux Privilege Escalation</span><span class="g-hrs">13.2h</span></div><div class="g-lrow" data-id="28"><span class="sdot idle" id="dot-28"></span><span class="g-num">28</span><span class="g-name" title="Using CrackMapExec">Using CrackMapExec</span><span class="g-hrs">14.7h</span></div><div class="g-lrow" data-id="29"><span class="sdot idle" id="dot-29"></span><span class="g-num">29</span><span class="g-name" title="Windows Privilege Escalation">Windows Privilege Escalation</span><span class="g-hrs">17.9h</span></div><div class="g-lrow" data-id="30"><span class="sdot idle" id="dot-30"></span><span class="g-num">30</span><span class="g-name" title="Documentation and Reporting">Documentation and Reporting</span><span class="g-hrs">4.8h</span></div><div class="g-lrow" data-id="31"><span class="sdot idle" id="dot-31"></span><span class="g-num">31</span><span class="g-name" title="Attacking Enterprise Networks">Attacking Enterprise Networks</span><span class="g-hrs">24.6h</span></div>
     </div>
     <div class="g-timeline">
       <div class="g-thdr">
@@ -219,8 +185,8 @@ body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min
       <div class="g-rows-area" style="position:relative">
         <div style="position:absolute;inset:0;pointer-events:none;z-index:2"><div class="vline month" style="left:13.761%"></div><div class="vline month" style="left:27.982%"></div><div class="vline month" style="left:41.743%"></div><div class="vline month" style="left:55.963%"></div><div class="vline month" style="left:70.183%"></div><div class="vline month" style="left:83.945%"></div><div class="vline month" style="left:98.165%"></div></div>
         <div class="today-line" style="left:7.339%;height:1240px"><div class="today-lbl">Today</div></div>
-        <div class="ddl-line"   style="left:88.073%;height:1240px"><div class="ddl-lbl">Oct 10 &#171;</div></div>
-        <div class="g-row" data-id="1" onclick="openModal(1)" style="background:#ffffff" onmouseenter="showTT(event,1)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:0.9174%;width:0.9174%"></div><div class="bar bar-actual" id="ba-1" style="display:none"></div></div><div class="g-row" data-id="2" onclick="openModal(2)" style="background:#f7f9fc" onmouseenter="showTT(event,2)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:2.2936%;width:0.9174%"></div><div class="bar bar-actual" id="ba-2" style="display:none"></div></div><div class="g-row" data-id="3" onclick="openModal(3)" style="background:#ffffff" onmouseenter="showTT(event,3)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:3.2110%;width:0.5000%"></div><div class="bar bar-actual" id="ba-3" style="display:none"></div></div><div class="g-row" data-id="4" onclick="openModal(4)" style="background:#f7f9fc" onmouseenter="showTT(event,4)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:3.6697%;width:2.2936%"></div><div class="bar bar-actual" id="ba-4" style="display:none"></div></div><div class="g-row" data-id="5" onclick="openModal(5)" style="background:#ffffff" onmouseenter="showTT(event,5)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:5.9633%;width:0.5000%"></div><div class="bar bar-actual" id="ba-5" style="display:none"></div></div><div class="g-row" data-id="6" onclick="openModal(6)" style="background:#f7f9fc" onmouseenter="showTT(event,6)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:6.4220%;width:0.5000%"></div><div class="bar bar-actual" id="ba-6" style="display:none"></div></div><div class="g-row" data-id="7" onclick="openModal(7)" style="background:#ffffff" onmouseenter="showTT(event,7)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:6.8807%;width:0.5000%"></div><div class="bar bar-actual" id="ba-7" style="display:none"></div></div><div class="g-row" data-id="8" onclick="openModal(8)" style="background:#f7f9fc" onmouseenter="showTT(event,8)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:7.3394%;width:0.9174%"></div><div class="bar bar-actual" id="ba-8" style="display:none"></div></div><div class="g-row" data-id="9" onclick="openModal(9)" style="background:#ffffff" onmouseenter="showTT(event,9)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:8.7156%;width:0.5000%"></div><div class="bar bar-actual" id="ba-9" style="display:none"></div></div><div class="g-row" data-id="10" onclick="openModal(10)" style="background:#f7f9fc" onmouseenter="showTT(event,10)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:9.1743%;width:1.8349%"></div><div class="bar bar-actual" id="ba-10" style="display:none"></div></div><div class="g-row" data-id="11" onclick="openModal(11)" style="background:#ffffff" onmouseenter="showTT(event,11)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:11.0092%;width:0.5000%"></div><div class="bar bar-actual" id="ba-11" style="display:none"></div></div><div class="g-row" data-id="12" onclick="openModal(12)" style="background:#f7f9fc" onmouseenter="showTT(event,12)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:11.9266%;width:0.5000%"></div><div class="bar bar-actual" id="ba-12" style="display:none"></div></div><div class="g-row" data-id="13" onclick="openModal(13)" style="background:#ffffff" onmouseenter="showTT(event,13)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:12.3853%;width:0.9174%"></div><div class="bar bar-actual" id="ba-13" style="display:none"></div></div><div class="g-row" data-id="14" onclick="openModal(14)" style="background:#f7f9fc" onmouseenter="showTT(event,14)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:13.3028%;width:1.3761%"></div><div class="bar bar-actual" id="ba-14" style="display:none"></div></div><div class="g-row" data-id="15" onclick="openModal(15)" style="background:#ffffff" onmouseenter="showTT(event,15)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:15.1376%;width:4.1284%"></div><div class="bar bar-actual" id="ba-15" style="display:none"></div></div><div class="g-row" data-id="16" onclick="openModal(16)" style="background:#f7f9fc" onmouseenter="showTT(event,16)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:19.2661%;width:0.5000%"></div><div class="bar bar-actual" id="ba-16" style="display:none"></div></div><div class="g-row" data-id="17" onclick="openModal(17)" style="background:#ffffff" onmouseenter="showTT(event,17)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:19.7248%;width:0.5000%"></div><div class="bar bar-actual" id="ba-17" style="display:none"></div></div><div class="g-row" data-id="18" onclick="openModal(18)" style="background:#f7f9fc" onmouseenter="showTT(event,18)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:20.1835%;width:0.5000%"></div><div class="bar bar-actual" id="ba-18" style="display:none"></div></div><div class="g-row" data-id="19" onclick="openModal(19)" style="background:#ffffff" onmouseenter="showTT(event,19)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:20.6422%;width:0.5000%"></div><div class="bar bar-actual" id="ba-19" style="display:none"></div></div><div class="g-row" data-id="20" onclick="openModal(20)" style="background:#f7f9fc" onmouseenter="showTT(event,20)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:21.5596%;width:0.5000%"></div><div class="bar bar-actual" id="ba-20" style="display:none"></div></div><div class="g-row" data-id="21" onclick="openModal(21)" style="background:#ffffff" onmouseenter="showTT(event,21)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:22.0183%;width:0.5000%"></div><div class="bar bar-actual" id="ba-21" style="display:none"></div></div><div class="g-row" data-id="22" onclick="openModal(22)" style="background:#f7f9fc" onmouseenter="showTT(event,22)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:22.4771%;width:0.5000%"></div><div class="bar bar-actual" id="ba-22" style="display:none"></div></div><div class="g-row" data-id="23" onclick="openModal(23)" style="background:#ffffff" onmouseenter="showTT(event,23)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:22.9358%;width:0.5000%"></div><div class="bar bar-actual" id="ba-23" style="display:none"></div></div><div class="g-row" data-id="24" onclick="openModal(24)" style="background:#f7f9fc" onmouseenter="showTT(event,24)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:23.3945%;width:0.5000%"></div><div class="bar bar-actual" id="ba-24" style="display:none"></div></div><div class="g-row" data-id="25" onclick="openModal(25)" style="background:#ffffff" onmouseenter="showTT(event,25)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:23.8532%;width:1.3761%"></div><div class="bar bar-actual" id="ba-25" style="display:none"></div></div><div class="g-row" data-id="26" onclick="openModal(26)" style="background:#f7f9fc" onmouseenter="showTT(event,26)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:25.2294%;width:1.3761%"></div><div class="bar bar-actual" id="ba-26" style="display:none"></div></div><div class="g-row" data-id="27" onclick="openModal(27)" style="background:#ffffff" onmouseenter="showTT(event,27)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:26.6055%;width:1.8349%"></div><div class="bar bar-actual" id="ba-27" style="display:none"></div></div><div class="g-row" data-id="28" onclick="openModal(28)" style="background:#f7f9fc" onmouseenter="showTT(event,28)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:28.4404%;width:1.3761%"></div><div class="bar bar-actual" id="ba-28" style="display:none"></div></div><div class="g-row" data-id="29" onclick="openModal(29)" style="background:#ffffff" onmouseenter="showTT(event,29)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:29.8165%;width:2.2936%"></div><div class="bar bar-actual" id="ba-29" style="display:none"></div></div><div class="g-row" data-id="30" onclick="openModal(30)" style="background:#f7f9fc" onmouseenter="showTT(event,30)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:32.1101%;width:0.5000%"></div><div class="bar bar-actual" id="ba-30" style="display:none"></div></div><div class="g-row" data-id="31" onclick="openModal(31)" style="background:#ffffff" onmouseenter="showTT(event,31)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:32.5688%;width:2.7523%"></div><div class="bar bar-actual" id="ba-31" style="display:none"></div></div>
+        <div class="ddl-line" style="left:88.073%;height:1240px"><div class="ddl-lbl">Oct 10 &#171;</div></div>
+        <div class="g-row" data-id="1" style="background:#ffffff"><div class="bar bar-plan" style="left:0.9174%;width:0.9174%"></div><div class="bar bar-actual" id="ba-1" style="display:none"></div></div><div class="g-row" data-id="2" style="background:#f7f9fc"><div class="bar bar-plan" style="left:2.2936%;width:0.9174%"></div><div class="bar bar-actual" id="ba-2" style="display:none"></div></div><div class="g-row" data-id="3" style="background:#ffffff"><div class="bar bar-plan" style="left:3.2110%;width:0.5000%"></div><div class="bar bar-actual" id="ba-3" style="display:none"></div></div><div class="g-row" data-id="4" style="background:#f7f9fc"><div class="bar bar-plan" style="left:3.6697%;width:2.2936%"></div><div class="bar bar-actual" id="ba-4" style="display:none"></div></div><div class="g-row" data-id="5" style="background:#ffffff"><div class="bar bar-plan" style="left:5.9633%;width:0.5000%"></div><div class="bar bar-actual" id="ba-5" style="display:none"></div></div><div class="g-row" data-id="6" style="background:#f7f9fc"><div class="bar bar-plan" style="left:6.4220%;width:0.5000%"></div><div class="bar bar-actual" id="ba-6" style="display:none"></div></div><div class="g-row" data-id="7" style="background:#ffffff"><div class="bar bar-plan" style="left:6.8807%;width:0.5000%"></div><div class="bar bar-actual" id="ba-7" style="display:none"></div></div><div class="g-row" data-id="8" style="background:#f7f9fc"><div class="bar bar-plan" style="left:7.3394%;width:0.9174%"></div><div class="bar bar-actual" id="ba-8" style="display:none"></div></div><div class="g-row" data-id="9" style="background:#ffffff"><div class="bar bar-plan" style="left:8.7156%;width:0.5000%"></div><div class="bar bar-actual" id="ba-9" style="display:none"></div></div><div class="g-row" data-id="10" style="background:#f7f9fc"><div class="bar bar-plan" style="left:9.1743%;width:1.8349%"></div><div class="bar bar-actual" id="ba-10" style="display:none"></div></div><div class="g-row" data-id="11" style="background:#ffffff"><div class="bar bar-plan" style="left:11.0092%;width:0.5000%"></div><div class="bar bar-actual" id="ba-11" style="display:none"></div></div><div class="g-row" data-id="12" style="background:#f7f9fc"><div class="bar bar-plan" style="left:11.9266%;width:0.5000%"></div><div class="bar bar-actual" id="ba-12" style="display:none"></div></div><div class="g-row" data-id="13" style="background:#ffffff"><div class="bar bar-plan" style="left:12.3853%;width:0.9174%"></div><div class="bar bar-actual" id="ba-13" style="display:none"></div></div><div class="g-row" data-id="14" style="background:#f7f9fc"><div class="bar bar-plan" style="left:13.3028%;width:1.3761%"></div><div class="bar bar-actual" id="ba-14" style="display:none"></div></div><div class="g-row" data-id="15" style="background:#ffffff"><div class="bar bar-plan" style="left:15.1376%;width:4.1284%"></div><div class="bar bar-actual" id="ba-15" style="display:none"></div></div><div class="g-row" data-id="16" style="background:#f7f9fc"><div class="bar bar-plan" style="left:19.2661%;width:0.5000%"></div><div class="bar bar-actual" id="ba-16" style="display:none"></div></div><div class="g-row" data-id="17" style="background:#ffffff"><div class="bar bar-plan" style="left:19.7248%;width:0.5000%"></div><div class="bar bar-actual" id="ba-17" style="display:none"></div></div><div class="g-row" data-id="18" style="background:#f7f9fc"><div class="bar bar-plan" style="left:20.1835%;width:0.5000%"></div><div class="bar bar-actual" id="ba-18" style="display:none"></div></div><div class="g-row" data-id="19" style="background:#ffffff"><div class="bar bar-plan" style="left:20.6422%;width:0.5000%"></div><div class="bar bar-actual" id="ba-19" style="display:none"></div></div><div class="g-row" data-id="20" style="background:#f7f9fc"><div class="bar bar-plan" style="left:21.5596%;width:0.5000%"></div><div class="bar bar-actual" id="ba-20" style="display:none"></div></div><div class="g-row" data-id="21" style="background:#ffffff"><div class="bar bar-plan" style="left:22.0183%;width:0.5000%"></div><div class="bar bar-actual" id="ba-21" style="display:none"></div></div><div class="g-row" data-id="22" style="background:#f7f9fc"><div class="bar bar-plan" style="left:22.4771%;width:0.5000%"></div><div class="bar bar-actual" id="ba-22" style="display:none"></div></div><div class="g-row" data-id="23" style="background:#ffffff"><div class="bar bar-plan" style="left:22.9358%;width:0.5000%"></div><div class="bar bar-actual" id="ba-23" style="display:none"></div></div><div class="g-row" data-id="24" style="background:#f7f9fc"><div class="bar bar-plan" style="left:23.3945%;width:0.5000%"></div><div class="bar bar-actual" id="ba-24" style="display:none"></div></div><div class="g-row" data-id="25" style="background:#ffffff"><div class="bar bar-plan" style="left:23.8532%;width:1.3761%"></div><div class="bar bar-actual" id="ba-25" style="display:none"></div></div><div class="g-row" data-id="26" style="background:#f7f9fc"><div class="bar bar-plan" style="left:25.2294%;width:1.3761%"></div><div class="bar bar-actual" id="ba-26" style="display:none"></div></div><div class="g-row" data-id="27" style="background:#ffffff"><div class="bar bar-plan" style="left:26.6055%;width:1.8349%"></div><div class="bar bar-actual" id="ba-27" style="display:none"></div></div><div class="g-row" data-id="28" style="background:#f7f9fc"><div class="bar bar-plan" style="left:28.4404%;width:1.3761%"></div><div class="bar bar-actual" id="ba-28" style="display:none"></div></div><div class="g-row" data-id="29" style="background:#ffffff"><div class="bar bar-plan" style="left:29.8165%;width:2.2936%"></div><div class="bar bar-actual" id="ba-29" style="display:none"></div></div><div class="g-row" data-id="30" style="background:#f7f9fc"><div class="bar bar-plan" style="left:32.1101%;width:0.5000%"></div><div class="bar bar-actual" id="ba-30" style="display:none"></div></div><div class="g-row" data-id="31" style="background:#ffffff"><div class="bar bar-plan" style="left:32.5688%;width:2.7523%"></div><div class="bar bar-actual" id="ba-31" style="display:none"></div></div>
       </div>
     </div>
   </div>
@@ -235,28 +201,24 @@ body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min
         <th>Plan Start</th><th>Plan End</th>
         <th>Actual Completion</th><th>Variance</th><th>Action</th>
       </tr></thead>
-      <tbody><tr><td style="color:#8fa0b5;font-size:9px">1</td><td style="font-weight:500">Penetration Testing Process</td><td style="color:#5a6a80">7.9h</td><td style="color:#5a6a80">03 Apr 2026</td><td style="color:#5a6a80">04 Apr 2026</td><td id="td-act-1" style="color:#8fa0b5">&mdash;</td><td id="td-var-1"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-1" onclick="openModal(1)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">2</td><td style="font-weight:500">Getting Started</td><td style="color:#5a6a80">6.5h</td><td style="color:#5a6a80">06 Apr 2026</td><td style="color:#5a6a80">07 Apr 2026</td><td id="td-act-2" style="color:#8fa0b5">&mdash;</td><td id="td-var-2"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-2" onclick="openModal(2)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">3</td><td style="font-weight:500">Network Enumeration With Nmap</td><td style="color:#5a6a80">3.5h</td><td style="color:#5a6a80">08 Apr 2026</td><td style="color:#5a6a80">08 Apr 2026</td><td id="td-act-3" style="color:#8fa0b5">&mdash;</td><td id="td-var-3"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-3" onclick="openModal(3)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">4</td><td style="font-weight:500">Footprinting</td><td style="color:#5a6a80">18.0h</td><td style="color:#5a6a80">09 Apr 2026</td><td style="color:#5a6a80">13 Apr 2026</td><td id="td-act-4" style="color:#8fa0b5">&mdash;</td><td id="td-var-4"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-4" onclick="openModal(4)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">5</td><td style="font-weight:500">Information Gathering - Web</td><td style="color:#5a6a80">4.2h</td><td style="color:#5a6a80">14 Apr 2026</td><td style="color:#5a6a80">14 Apr 2026</td><td id="td-act-5" style="color:#8fa0b5">&mdash;</td><td id="td-var-5"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-5" onclick="openModal(5)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">6</td><td style="font-weight:500">Vulnerability Assessment</td><td style="color:#5a6a80">2.4h</td><td style="color:#5a6a80">15 Apr 2026</td><td style="color:#5a6a80">15 Apr 2026</td><td id="td-act-6" style="color:#8fa0b5">&mdash;</td><td id="td-var-6"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-6" onclick="openModal(6)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">7</td><td style="font-weight:500">File Transfers</td><td style="color:#5a6a80">4.6h</td><td style="color:#5a6a80">16 Apr 2026</td><td style="color:#5a6a80">16 Apr 2026</td><td id="td-act-7" style="color:#8fa0b5">&mdash;</td><td id="td-var-7"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-7" onclick="openModal(7)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">8</td><td style="font-weight:500">Shells & Payloads</td><td style="color:#5a6a80">5.1h</td><td style="color:#5a6a80">17 Apr 2026</td><td style="color:#5a6a80">18 Apr 2026</td><td id="td-act-8" style="color:#8fa0b5">&mdash;</td><td id="td-var-8"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-8" onclick="openModal(8)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">9</td><td style="font-weight:500">Using The Metasploit Framework</td><td style="color:#5a6a80">5.0h</td><td style="color:#5a6a80">20 Apr 2026</td><td style="color:#5a6a80">20 Apr 2026</td><td id="td-act-9" style="color:#8fa0b5">&mdash;</td><td id="td-var-9"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-9" onclick="openModal(9)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">10</td><td style="font-weight:500">Password Attacks</td><td style="color:#5a6a80">19.5h</td><td style="color:#5a6a80">21 Apr 2026</td><td style="color:#5a6a80">24 Apr 2026</td><td id="td-act-10" style="color:#8fa0b5">&mdash;</td><td id="td-var-10"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-10" onclick="openModal(10)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">11</td><td style="font-weight:500">Windows Fundamentals</td><td style="color:#5a6a80">2.5h</td><td style="color:#5a6a80">25 Apr 2026</td><td style="color:#5a6a80">25 Apr 2026</td><td id="td-act-11" style="color:#8fa0b5">&mdash;</td><td id="td-var-11"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-11" onclick="openModal(11)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">12</td><td style="font-weight:500">Intro to Active Directory</td><td style="color:#5a6a80">3.6h</td><td style="color:#5a6a80">27 Apr 2026</td><td style="color:#5a6a80">27 Apr 2026</td><td id="td-act-12" style="color:#8fa0b5">&mdash;</td><td id="td-var-12"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-12" onclick="openModal(12)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">13</td><td style="font-weight:500">Attacking Common Services</td><td style="color:#5a6a80">7.2h</td><td style="color:#5a6a80">28 Apr 2026</td><td style="color:#5a6a80">29 Apr 2026</td><td id="td-act-13" style="color:#8fa0b5">&mdash;</td><td id="td-var-13"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-13" onclick="openModal(13)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">14</td><td style="font-weight:500">Pivoting, Tunneling & Port Fwd</td><td style="color:#5a6a80">13.4h</td><td style="color:#5a6a80">30 Apr 2026</td><td style="color:#5a6a80">02 May 2026</td><td id="td-act-14" style="color:#8fa0b5">&mdash;</td><td id="td-var-14"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-14" onclick="openModal(14)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">15</td><td style="font-weight:500">Active Directory Enum & Attacks</td><td style="color:#5a6a80">38.1h</td><td style="color:#5a6a80">04 May 2026</td><td style="color:#5a6a80">12 May 2026</td><td id="td-act-15" style="color:#8fa0b5">&mdash;</td><td id="td-var-15"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-15" onclick="openModal(15)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">16</td><td style="font-weight:500">Using Web Proxies</td><td style="color:#5a6a80">1.8h</td><td style="color:#5a6a80">13 May 2026</td><td style="color:#5a6a80">13 May 2026</td><td id="td-act-16" style="color:#8fa0b5">&mdash;</td><td id="td-var-16"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-16" onclick="openModal(16)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">17</td><td style="font-weight:500">Attacking Web Apps w/ FFUF</td><td style="color:#5a6a80">1.8h</td><td style="color:#5a6a80">14 May 2026</td><td style="color:#5a6a80">14 May 2026</td><td id="td-act-17" style="color:#8fa0b5">&mdash;</td><td id="td-var-17"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-17" onclick="openModal(17)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">18</td><td style="font-weight:500">Login Brute Forcing</td><td style="color:#5a6a80">1.2h</td><td style="color:#5a6a80">15 May 2026</td><td style="color:#5a6a80">15 May 2026</td><td id="td-act-18" style="color:#8fa0b5">&mdash;</td><td id="td-var-18"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-18" onclick="openModal(18)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">19</td><td style="font-weight:500">SQL Injection Fundamentals</td><td style="color:#5a6a80">2.9h</td><td style="color:#5a6a80">16 May 2026</td><td style="color:#5a6a80">16 May 2026</td><td id="td-act-19" style="color:#8fa0b5">&mdash;</td><td id="td-var-19"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-19" onclick="openModal(19)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">20</td><td style="font-weight:500">SQLMap Essentials</td><td style="color:#5a6a80">2.4h</td><td style="color:#5a6a80">18 May 2026</td><td style="color:#5a6a80">18 May 2026</td><td id="td-act-20" style="color:#8fa0b5">&mdash;</td><td id="td-var-20"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-20" onclick="openModal(20)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">21</td><td style="font-weight:500">Cross-Site Scripting (XSS)</td><td style="color:#5a6a80">2.4h</td><td style="color:#5a6a80">19 May 2026</td><td style="color:#5a6a80">19 May 2026</td><td id="td-act-21" style="color:#8fa0b5">&mdash;</td><td id="td-var-21"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-21" onclick="openModal(21)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">22</td><td style="font-weight:500">File Inclusion</td><td style="color:#5a6a80">3.7h</td><td style="color:#5a6a80">20 May 2026</td><td style="color:#5a6a80">20 May 2026</td><td id="td-act-22" style="color:#8fa0b5">&mdash;</td><td id="td-var-22"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-22" onclick="openModal(22)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">23</td><td style="font-weight:500">File Upload Attacks</td><td style="color:#5a6a80">4.6h</td><td style="color:#5a6a80">21 May 2026</td><td style="color:#5a6a80">21 May 2026</td><td id="td-act-23" style="color:#8fa0b5">&mdash;</td><td id="td-var-23"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-23" onclick="openModal(23)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">24</td><td style="font-weight:500">Command Injections</td><td style="color:#5a6a80">2.8h</td><td style="color:#5a6a80">22 May 2026</td><td style="color:#5a6a80">22 May 2026</td><td id="td-act-24" style="color:#8fa0b5">&mdash;</td><td id="td-var-24"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-24" onclick="openModal(24)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">25</td><td style="font-weight:500">Web Attacks</td><td style="color:#5a6a80">5.2h</td><td style="color:#5a6a80">23 May 2026</td><td style="color:#5a6a80">25 May 2026</td><td id="td-act-25" style="color:#8fa0b5">&mdash;</td><td id="td-var-25"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-25" onclick="openModal(25)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">26</td><td style="font-weight:500">Attacking Common Applications</td><td style="color:#5a6a80">13.6h</td><td style="color:#5a6a80">26 May 2026</td><td style="color:#5a6a80">28 May 2026</td><td id="td-act-26" style="color:#8fa0b5">&mdash;</td><td id="td-var-26"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-26" onclick="openModal(26)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">27</td><td style="font-weight:500">Linux Privilege Escalation</td><td style="color:#5a6a80">13.2h</td><td style="color:#5a6a80">29 May 2026</td><td style="color:#5a6a80">01 Jun 2026</td><td id="td-act-27" style="color:#8fa0b5">&mdash;</td><td id="td-var-27"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-27" onclick="openModal(27)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">28</td><td style="font-weight:500">Using CrackMapExec</td><td style="color:#5a6a80">14.7h</td><td style="color:#5a6a80">02 Jun 2026</td><td style="color:#5a6a80">04 Jun 2026</td><td id="td-act-28" style="color:#8fa0b5">&mdash;</td><td id="td-var-28"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-28" onclick="openModal(28)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">29</td><td style="font-weight:500">Windows Privilege Escalation</td><td style="color:#5a6a80">17.9h</td><td style="color:#5a6a80">05 Jun 2026</td><td style="color:#5a6a80">09 Jun 2026</td><td id="td-act-29" style="color:#8fa0b5">&mdash;</td><td id="td-var-29"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-29" onclick="openModal(29)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">30</td><td style="font-weight:500">Documentation and Reporting</td><td style="color:#5a6a80">4.8h</td><td style="color:#5a6a80">10 Jun 2026</td><td style="color:#5a6a80">10 Jun 2026</td><td id="td-act-30" style="color:#8fa0b5">&mdash;</td><td id="td-var-30"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-30" onclick="openModal(30)">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">31</td><td style="font-weight:500">Attacking Enterprise Networks</td><td style="color:#5a6a80">24.6h</td><td style="color:#5a6a80">11 Jun 2026</td><td style="color:#5a6a80">16 Jun 2026</td><td id="td-act-31" style="color:#8fa0b5">&mdash;</td><td id="td-var-31"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-31" onclick="openModal(31)">Mark Complete</button></td></tr></tbody>
+      <tbody><tr><td style="color:#8fa0b5;font-size:9px">1</td><td style="font-weight:500">Penetration Testing Process</td><td style="color:#5a6a80">7.9h</td><td style="color:#5a6a80">03 Apr 2026</td><td style="color:#5a6a80">04 Apr 2026</td><td id="td-act-1" style="color:#8fa0b5">&mdash;</td><td id="td-var-1"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-1" data-id="1">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">2</td><td style="font-weight:500">Getting Started</td><td style="color:#5a6a80">6.5h</td><td style="color:#5a6a80">06 Apr 2026</td><td style="color:#5a6a80">07 Apr 2026</td><td id="td-act-2" style="color:#8fa0b5">&mdash;</td><td id="td-var-2"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-2" data-id="2">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">3</td><td style="font-weight:500">Network Enumeration With Nmap</td><td style="color:#5a6a80">3.5h</td><td style="color:#5a6a80">08 Apr 2026</td><td style="color:#5a6a80">08 Apr 2026</td><td id="td-act-3" style="color:#8fa0b5">&mdash;</td><td id="td-var-3"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-3" data-id="3">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">4</td><td style="font-weight:500">Footprinting</td><td style="color:#5a6a80">18.0h</td><td style="color:#5a6a80">09 Apr 2026</td><td style="color:#5a6a80">13 Apr 2026</td><td id="td-act-4" style="color:#8fa0b5">&mdash;</td><td id="td-var-4"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-4" data-id="4">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">5</td><td style="font-weight:500">Information Gathering - Web</td><td style="color:#5a6a80">4.2h</td><td style="color:#5a6a80">14 Apr 2026</td><td style="color:#5a6a80">14 Apr 2026</td><td id="td-act-5" style="color:#8fa0b5">&mdash;</td><td id="td-var-5"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-5" data-id="5">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">6</td><td style="font-weight:500">Vulnerability Assessment</td><td style="color:#5a6a80">2.4h</td><td style="color:#5a6a80">15 Apr 2026</td><td style="color:#5a6a80">15 Apr 2026</td><td id="td-act-6" style="color:#8fa0b5">&mdash;</td><td id="td-var-6"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-6" data-id="6">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">7</td><td style="font-weight:500">File Transfers</td><td style="color:#5a6a80">4.6h</td><td style="color:#5a6a80">16 Apr 2026</td><td style="color:#5a6a80">16 Apr 2026</td><td id="td-act-7" style="color:#8fa0b5">&mdash;</td><td id="td-var-7"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-7" data-id="7">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">8</td><td style="font-weight:500">Shells & Payloads</td><td style="color:#5a6a80">5.1h</td><td style="color:#5a6a80">17 Apr 2026</td><td style="color:#5a6a80">18 Apr 2026</td><td id="td-act-8" style="color:#8fa0b5">&mdash;</td><td id="td-var-8"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-8" data-id="8">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">9</td><td style="font-weight:500">Using The Metasploit Framework</td><td style="color:#5a6a80">5.0h</td><td style="color:#5a6a80">20 Apr 2026</td><td style="color:#5a6a80">20 Apr 2026</td><td id="td-act-9" style="color:#8fa0b5">&mdash;</td><td id="td-var-9"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-9" data-id="9">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">10</td><td style="font-weight:500">Password Attacks</td><td style="color:#5a6a80">19.5h</td><td style="color:#5a6a80">21 Apr 2026</td><td style="color:#5a6a80">24 Apr 2026</td><td id="td-act-10" style="color:#8fa0b5">&mdash;</td><td id="td-var-10"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-10" data-id="10">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">11</td><td style="font-weight:500">Windows Fundamentals</td><td style="color:#5a6a80">2.5h</td><td style="color:#5a6a80">25 Apr 2026</td><td style="color:#5a6a80">25 Apr 2026</td><td id="td-act-11" style="color:#8fa0b5">&mdash;</td><td id="td-var-11"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-11" data-id="11">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">12</td><td style="font-weight:500">Intro to Active Directory</td><td style="color:#5a6a80">3.6h</td><td style="color:#5a6a80">27 Apr 2026</td><td style="color:#5a6a80">27 Apr 2026</td><td id="td-act-12" style="color:#8fa0b5">&mdash;</td><td id="td-var-12"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-12" data-id="12">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">13</td><td style="font-weight:500">Attacking Common Services</td><td style="color:#5a6a80">7.2h</td><td style="color:#5a6a80">28 Apr 2026</td><td style="color:#5a6a80">29 Apr 2026</td><td id="td-act-13" style="color:#8fa0b5">&mdash;</td><td id="td-var-13"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-13" data-id="13">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">14</td><td style="font-weight:500">Pivoting, Tunneling & Port Fwd</td><td style="color:#5a6a80">13.4h</td><td style="color:#5a6a80">30 Apr 2026</td><td style="color:#5a6a80">02 May 2026</td><td id="td-act-14" style="color:#8fa0b5">&mdash;</td><td id="td-var-14"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-14" data-id="14">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">15</td><td style="font-weight:500">Active Directory Enum & Attacks</td><td style="color:#5a6a80">38.1h</td><td style="color:#5a6a80">04 May 2026</td><td style="color:#5a6a80">12 May 2026</td><td id="td-act-15" style="color:#8fa0b5">&mdash;</td><td id="td-var-15"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-15" data-id="15">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">16</td><td style="font-weight:500">Using Web Proxies</td><td style="color:#5a6a80">1.8h</td><td style="color:#5a6a80">13 May 2026</td><td style="color:#5a6a80">13 May 2026</td><td id="td-act-16" style="color:#8fa0b5">&mdash;</td><td id="td-var-16"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-16" data-id="16">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">17</td><td style="font-weight:500">Attacking Web Apps w/ FFUF</td><td style="color:#5a6a80">1.8h</td><td style="color:#5a6a80">14 May 2026</td><td style="color:#5a6a80">14 May 2026</td><td id="td-act-17" style="color:#8fa0b5">&mdash;</td><td id="td-var-17"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-17" data-id="17">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">18</td><td style="font-weight:500">Login Brute Forcing</td><td style="color:#5a6a80">1.2h</td><td style="color:#5a6a80">15 May 2026</td><td style="color:#5a6a80">15 May 2026</td><td id="td-act-18" style="color:#8fa0b5">&mdash;</td><td id="td-var-18"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-18" data-id="18">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">19</td><td style="font-weight:500">SQL Injection Fundamentals</td><td style="color:#5a6a80">2.9h</td><td style="color:#5a6a80">16 May 2026</td><td style="color:#5a6a80">16 May 2026</td><td id="td-act-19" style="color:#8fa0b5">&mdash;</td><td id="td-var-19"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-19" data-id="19">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">20</td><td style="font-weight:500">SQLMap Essentials</td><td style="color:#5a6a80">2.4h</td><td style="color:#5a6a80">18 May 2026</td><td style="color:#5a6a80">18 May 2026</td><td id="td-act-20" style="color:#8fa0b5">&mdash;</td><td id="td-var-20"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-20" data-id="20">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">21</td><td style="font-weight:500">Cross-Site Scripting (XSS)</td><td style="color:#5a6a80">2.4h</td><td style="color:#5a6a80">19 May 2026</td><td style="color:#5a6a80">19 May 2026</td><td id="td-act-21" style="color:#8fa0b5">&mdash;</td><td id="td-var-21"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-21" data-id="21">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">22</td><td style="font-weight:500">File Inclusion</td><td style="color:#5a6a80">3.7h</td><td style="color:#5a6a80">20 May 2026</td><td style="color:#5a6a80">20 May 2026</td><td id="td-act-22" style="color:#8fa0b5">&mdash;</td><td id="td-var-22"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-22" data-id="22">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">23</td><td style="font-weight:500">File Upload Attacks</td><td style="color:#5a6a80">4.6h</td><td style="color:#5a6a80">21 May 2026</td><td style="color:#5a6a80">21 May 2026</td><td id="td-act-23" style="color:#8fa0b5">&mdash;</td><td id="td-var-23"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-23" data-id="23">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">24</td><td style="font-weight:500">Command Injections</td><td style="color:#5a6a80">2.8h</td><td style="color:#5a6a80">22 May 2026</td><td style="color:#5a6a80">22 May 2026</td><td id="td-act-24" style="color:#8fa0b5">&mdash;</td><td id="td-var-24"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-24" data-id="24">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">25</td><td style="font-weight:500">Web Attacks</td><td style="color:#5a6a80">5.2h</td><td style="color:#5a6a80">23 May 2026</td><td style="color:#5a6a80">25 May 2026</td><td id="td-act-25" style="color:#8fa0b5">&mdash;</td><td id="td-var-25"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-25" data-id="25">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">26</td><td style="font-weight:500">Attacking Common Applications</td><td style="color:#5a6a80">13.6h</td><td style="color:#5a6a80">26 May 2026</td><td style="color:#5a6a80">28 May 2026</td><td id="td-act-26" style="color:#8fa0b5">&mdash;</td><td id="td-var-26"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-26" data-id="26">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">27</td><td style="font-weight:500">Linux Privilege Escalation</td><td style="color:#5a6a80">13.2h</td><td style="color:#5a6a80">29 May 2026</td><td style="color:#5a6a80">01 Jun 2026</td><td id="td-act-27" style="color:#8fa0b5">&mdash;</td><td id="td-var-27"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-27" data-id="27">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">28</td><td style="font-weight:500">Using CrackMapExec</td><td style="color:#5a6a80">14.7h</td><td style="color:#5a6a80">02 Jun 2026</td><td style="color:#5a6a80">04 Jun 2026</td><td id="td-act-28" style="color:#8fa0b5">&mdash;</td><td id="td-var-28"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-28" data-id="28">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">29</td><td style="font-weight:500">Windows Privilege Escalation</td><td style="color:#5a6a80">17.9h</td><td style="color:#5a6a80">05 Jun 2026</td><td style="color:#5a6a80">09 Jun 2026</td><td id="td-act-29" style="color:#8fa0b5">&mdash;</td><td id="td-var-29"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-29" data-id="29">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">30</td><td style="font-weight:500">Documentation and Reporting</td><td style="color:#5a6a80">4.8h</td><td style="color:#5a6a80">10 Jun 2026</td><td style="color:#5a6a80">10 Jun 2026</td><td id="td-act-30" style="color:#8fa0b5">&mdash;</td><td id="td-var-30"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-30" data-id="30">Mark Complete</button></td></tr><tr><td style="color:#8fa0b5;font-size:9px">31</td><td style="font-weight:500">Attacking Enterprise Networks</td><td style="color:#5a6a80">24.6h</td><td style="color:#5a6a80">11 Jun 2026</td><td style="color:#5a6a80">16 Jun 2026</td><td id="td-act-31" style="color:#8fa0b5">&mdash;</td><td id="td-var-31"><span class="vtag vt-p">Pending</span></td><td><button class="tbtn" id="tbtn-31" data-id="31">Mark Complete</button></td></tr></tbody>
     </table>
   </div>
 </div>
-
-<div class="footer">
-  Hours reference: <a href="https://www.brunorochamoura.com/posts/road-to-cpts/" target="_blank">Road to HTB CPTS</a> by Bruno Rocha Moura &nbsp;&middot;&nbsp;
-  30 hrs/week &middot; Mon&ndash;Sat &middot; 5 hrs/day &nbsp;&middot;&nbsp; Planned finish: 16 Jun 2026
-</div>
+<div class="footer">Hours reference: <a href="https://www.brunorochamoura.com/posts/road-to-cpts/" target="_blank">Road to HTB CPTS</a> by Bruno Rocha Moura &nbsp;&middot;&nbsp; 30 hrs/week &middot; Mon&ndash;Sat &middot; 5 hrs/day &nbsp;&middot;&nbsp; Planned finish: 16 Jun 2026</div>
 
 <div id="tt"><div class="tt-title" id="tt-title"></div><hr style="border:none;border-top:1px solid var(--bdr);margin:5px 0"><div id="tt-body"></div><div class="tt-hint" id="tt-hint"></div></div>
 
 <div class="mbg" id="mbg">
   <div class="modal">
-    <div class="mhdr"><h2 id="m-title">Mark Module Complete</h2><button class="mcls" onclick="closeModal()">&#x2715;</button></div>
+    <div class="mhdr"><h2 id="m-title">Mark Module Complete</h2><button class="mcls" id="m-close">&#x2715;</button></div>
     <div class="mmod" id="m-mod"></div>
     <div class="minfo" id="m-info"></div>
     <div><label class="flbl" for="m-date">Completion Date</label><input type="date" class="finput" id="m-date" min="2026-04-03" max="2026-12-31"></div>
     <div class="mact">
-      <button class="btn btn-del btn-del-space" id="m-clear" onclick="clearMod()" style="display:none">&#x2715; Clear</button>
-      <button class="btn btn-no" onclick="closeModal()">Cancel</button>
-      <button class="btn btn-ok" id="m-save" onclick="saveMod()">&#x2714; Confirm</button>
+      <button class="btn btn-del btn-del-space" id="m-clear" style="display:none">&#x2715; Clear</button>
+      <button class="btn btn-no" id="m-cancel">Cancel</button>
+      <button class="btn btn-ok" id="m-save">&#x2714; Confirm</button>
     </div>
   </div>
 </div>
@@ -264,21 +226,24 @@ body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min
 <script>
 'use strict';
 
-// ── JSONBin config (stored in localStorage per device after setup) ─────────────
-const JSONBIN_URL = 'https://api.jsonbin.io/v3/b';
-const LS_KEY      = 'cpts_jb_key';
-const LS_BIN      = 'cpts_jb_bin';
+// ── GitHub config — your repository ──────────────────────────────────────────
+const GH_OWNER = 'MAKSUD-gif';
+const GH_REPO  = 'CPTS---Tracker';
+const GH_FILE  = 'data.json';
+const GH_API   = 'https://api.github.com/repos/'+GH_OWNER+'/'+GH_REPO+'/contents/'+GH_FILE;
+const GH_RAW   = 'https://raw.githubusercontent.com/'+GH_OWNER+'/'+GH_REPO+'/main/'+GH_FILE;
 
-let JB_KEY = localStorage.getItem(LS_KEY) || '';
-let JB_BIN = localStorage.getItem(LS_BIN) || '';
-let STATE  = {};
-let ACTIVE = null;
-let _saving = false;
+// ── Token storage — editors only ──────────────────────────────────────────────
+const LS_TOKEN = 'cpts_gh_token';
+let GH_TOKEN   = localStorage.getItem(LS_TOKEN) || '';
 
 const SCHED = [{id:1,name:"Penetration Testing Process",h:7.9,ps:"2026-04-03",pe:"2026-04-04",left:0.9174,width:0.9174},{id:2,name:"Getting Started",h:6.5,ps:"2026-04-06",pe:"2026-04-07",left:2.2936,width:0.9174},{id:3,name:"Network Enumeration With Nmap",h:3.5,ps:"2026-04-08",pe:"2026-04-08",left:3.2110,width:0.5000},{id:4,name:"Footprinting",h:18.0,ps:"2026-04-09",pe:"2026-04-13",left:3.6697,width:2.2936},{id:5,name:"Information Gathering - Web",h:4.2,ps:"2026-04-14",pe:"2026-04-14",left:5.9633,width:0.5000},{id:6,name:"Vulnerability Assessment",h:2.4,ps:"2026-04-15",pe:"2026-04-15",left:6.4220,width:0.5000},{id:7,name:"File Transfers",h:4.6,ps:"2026-04-16",pe:"2026-04-16",left:6.8807,width:0.5000},{id:8,name:"Shells & Payloads",h:5.1,ps:"2026-04-17",pe:"2026-04-18",left:7.3394,width:0.9174},{id:9,name:"Using The Metasploit Framework",h:5.0,ps:"2026-04-20",pe:"2026-04-20",left:8.7156,width:0.5000},{id:10,name:"Password Attacks",h:19.5,ps:"2026-04-21",pe:"2026-04-24",left:9.1743,width:1.8349},{id:11,name:"Windows Fundamentals",h:2.5,ps:"2026-04-25",pe:"2026-04-25",left:11.0092,width:0.5000},{id:12,name:"Intro to Active Directory",h:3.6,ps:"2026-04-27",pe:"2026-04-27",left:11.9266,width:0.5000},{id:13,name:"Attacking Common Services",h:7.2,ps:"2026-04-28",pe:"2026-04-29",left:12.3853,width:0.9174},{id:14,name:"Pivoting, Tunneling & Port Fwd",h:13.4,ps:"2026-04-30",pe:"2026-05-02",left:13.3028,width:1.3761},{id:15,name:"Active Directory Enum & Attacks",h:38.1,ps:"2026-05-04",pe:"2026-05-12",left:15.1376,width:4.1284},{id:16,name:"Using Web Proxies",h:1.8,ps:"2026-05-13",pe:"2026-05-13",left:19.2661,width:0.5000},{id:17,name:"Attacking Web Apps w/ FFUF",h:1.8,ps:"2026-05-14",pe:"2026-05-14",left:19.7248,width:0.5000},{id:18,name:"Login Brute Forcing",h:1.2,ps:"2026-05-15",pe:"2026-05-15",left:20.1835,width:0.5000},{id:19,name:"SQL Injection Fundamentals",h:2.9,ps:"2026-05-16",pe:"2026-05-16",left:20.6422,width:0.5000},{id:20,name:"SQLMap Essentials",h:2.4,ps:"2026-05-18",pe:"2026-05-18",left:21.5596,width:0.5000},{id:21,name:"Cross-Site Scripting (XSS)",h:2.4,ps:"2026-05-19",pe:"2026-05-19",left:22.0183,width:0.5000},{id:22,name:"File Inclusion",h:3.7,ps:"2026-05-20",pe:"2026-05-20",left:22.4771,width:0.5000},{id:23,name:"File Upload Attacks",h:4.6,ps:"2026-05-21",pe:"2026-05-21",left:22.9358,width:0.5000},{id:24,name:"Command Injections",h:2.8,ps:"2026-05-22",pe:"2026-05-22",left:23.3945,width:0.5000},{id:25,name:"Web Attacks",h:5.2,ps:"2026-05-23",pe:"2026-05-25",left:23.8532,width:1.3761},{id:26,name:"Attacking Common Applications",h:13.6,ps:"2026-05-26",pe:"2026-05-28",left:25.2294,width:1.3761},{id:27,name:"Linux Privilege Escalation",h:13.2,ps:"2026-05-29",pe:"2026-06-01",left:26.6055,width:1.8349},{id:28,name:"Using CrackMapExec",h:14.7,ps:"2026-06-02",pe:"2026-06-04",left:28.4404,width:1.3761},{id:29,name:"Windows Privilege Escalation",h:17.9,ps:"2026-06-05",pe:"2026-06-09",left:29.8165,width:2.2936},{id:30,name:"Documentation and Reporting",h:4.8,ps:"2026-06-10",pe:"2026-06-10",left:32.1101,width:0.5000},{id:31,name:"Attacking Enterprise Networks",h:24.6,ps:"2026-06-11",pe:"2026-06-16",left:32.5688,width:2.7523}];
 const HPD=5, MS=86400000;
 const TL_START=new Date('2026-04-01'), TL_END=new Date('2026-11-05');
 const DEADLINE=new Date('2026-10-10');
+let STATE  = {};
+let ACTIVE = null;
+let _saving = false;
 
 function pDate(s){return new Date(s+'T00:00:00')}
 function dBet(a,b){return Math.round((b-a)/MS)}
@@ -286,109 +251,98 @@ function fmt(d){return d.toLocaleDateString('en-GB',{day:'2-digit',month:'short'
 function iso(d){return d.toISOString().split('T')[0]}
 function xPct(d){return Math.max(0,Math.min(100,((d-TL_START)/(TL_END-TL_START))*100))}
 
-// ── SYNC STATUS UI ────────────────────────────────────────────────────────────
 function syncStatus(state, msg){
-  const dot = document.getElementById('sync-dot');
-  const txt = document.getElementById('sync-txt');
-  dot.className = 'sync-dot ' + (state==='ok'?'ok':state==='err'?'err':'spin');
-  txt.textContent = msg;
+  document.getElementById('sync-dot').className='sync-dot '+(state==='ok'?'ok':state==='err'?'err':'spin');
+  document.getElementById('sync-txt').textContent=msg;
 }
 
-// ── JSONBIN API ───────────────────────────────────────────────────────────────
-async function jbCreate(key){
-  const r = await fetch(JSONBIN_URL, {
-    method:'POST',
-    headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Name':'CPTS-Tracker'},
-    body: JSON.stringify({"initialized":true})
+// ── GITHUB READ (public — no token needed) ────────────────────────────────────
+async function ghRead(){
+  // Use raw URL with cache-buster for fastest public read
+  const r = await fetch(GH_RAW+'?t='+Date.now());
+  if(r.status===404) return {}; // file doesn't exist yet — empty state
+  if(!r.ok) throw new Error('Read failed: HTTP '+r.status);
+  return await r.json();
+}
+
+// ── GITHUB WRITE (token required) ─────────────────────────────────────────────
+async function ghWrite(data){
+  // Get current file SHA (needed for update)
+  let sha = null;
+  try{
+    const r1 = await fetch(GH_API, {headers:{'Authorization':'Bearer '+GH_TOKEN}});
+    if(r1.ok){ const d1=await r1.json(); sha=d1.sha; }
+  }catch{}
+
+  const content = btoa(JSON.stringify(data, null, 2));
+  const body = {
+    message: 'Update CPTS progress — '+new Date().toISOString().split('T')[0],
+    content: content
+  };
+  if(sha) body.sha = sha;
+
+  const r = await fetch(GH_API, {
+    method:'PUT',
+    headers:{'Authorization':'Bearer '+GH_TOKEN,'Content-Type':'application/json'},
+    body: JSON.stringify(body)
   });
   if(!r.ok){
-    let msg = 'HTTP '+r.status;
-    try{ const t=await r.text(); msg+=' — '+t.slice(0,120); }catch{}
-    throw new Error(msg);
-  }
-  const d = await r.json();
-  return d.metadata.id;
-}
-
-async function jbRead(){
-  const r = await fetch(JSONBIN_URL+'/'+JB_BIN+'/latest', {
-    headers:{'X-Master-Key':JB_KEY}
-  });
-  if(!r.ok) throw new Error('HTTP '+r.status);
-  const d = await r.json();
-  return d.record || {};
-}
-
-async function jbWrite(data){
-  const r = await fetch(JSONBIN_URL+'/'+JB_BIN, {
-    method:'PUT',
-    headers:{'Content-Type':'application/json','X-Master-Key':JB_KEY},
-    body: JSON.stringify(data)
-  });
-  if(!r.ok) throw new Error('HTTP '+r.status);
-}
-
-// ── SETUP ─────────────────────────────────────────────────────────────────────
-async function doSetup(){
-  const key = document.getElementById('s-key').value.trim();
-  const err = document.getElementById('setup-err');
-  const btn = document.getElementById('setup-btn');
-  if(!key){ err.textContent='Please paste your Master Key.'; return; }
-  err.textContent='';
-  btn.disabled=true; btn.textContent='Creating storage...';
-  try{
-    const binId = await jbCreate(key);
-    JB_KEY = key; JB_BIN = binId;
-    localStorage.setItem(LS_KEY, key);
-    localStorage.setItem(LS_BIN, binId);
-    document.getElementById('setup-overlay').style.display='none';
-    syncStatus('ok','Connected');
-    applyState();
-  } catch(e){
-    err.textContent='Failed: ' + e.message;
-    btn.disabled=false; btn.textContent='Connect & Start';
+    const t = await r.text();
+    throw new Error('Write failed: HTTP '+r.status+' '+t.slice(0,80));
   }
 }
 
-// ── LOAD from JSONBin ─────────────────────────────────────────────────────────
+// ── LOAD ──────────────────────────────────────────────────────────────────────
 async function loadState(){
   syncStatus('spin','Loading...');
   try{
-    STATE = await jbRead();
+    STATE = await ghRead();
     syncStatus('ok','Live — '+new Date().toLocaleTimeString());
     applyState();
-  } catch(e){
-    syncStatus('err','Load failed — retrying...');
-    setTimeout(loadState, 5000);
+  }catch(e){
+    syncStatus('err','Failed — '+e.message.slice(0,40));
+    setTimeout(loadState, 10000);
   }
 }
 
-// ── SAVE to JSONBin ───────────────────────────────────────────────────────────
+// ── SAVE ──────────────────────────────────────────────────────────────────────
 async function saveState(){
   if(_saving) return;
-  _saving = true;
+  _saving=true;
   syncStatus('spin','Saving...');
   try{
-    await jbWrite(STATE);
+    await ghWrite(STATE);
     syncStatus('ok','Saved — '+new Date().toLocaleTimeString());
-  } catch(e){
-    syncStatus('err','Save failed');
-  } finally{
+  }catch(e){
+    syncStatus('err','Save failed: '+e.message.slice(0,40));
+    alert('Could not save: '+e.message);
+  }finally{
     _saving=false;
   }
+}
+
+// ── TOKEN ─────────────────────────────────────────────────────────────────────
+function activateToken(){
+  const t = document.getElementById('token-input').value.trim();
+  if(!t){ document.getElementById('token-err').textContent='Please paste your token.'; return; }
+  localStorage.setItem(LS_TOKEN, t);
+  GH_TOKEN = t;
+  document.getElementById('token-bar').style.display='none';
+  document.getElementById('token-err').textContent='';
+  syncStatus('ok','Edit mode active');
 }
 
 // ── RENDER ────────────────────────────────────────────────────────────────────
 function applyState(){
   let done=0, late=0;
-  SCHED.forEach(m=>{
-    const actStr=STATE[m.id];
-    const dot  = document.getElementById('dot-'+m.id);
-    const ba   = document.getElementById('ba-'+m.id);
-    const tdA  = document.getElementById('td-act-'+m.id);
-    const tdV  = document.getElementById('td-var-'+m.id);
-    const tbtn = document.getElementById('tbtn-'+m.id);
-    const pe   = pDate(m.pe);
+  SCHED.forEach(function(m){
+    const actStr = STATE[m.id];
+    const dot   = document.getElementById('dot-'+m.id);
+    const ba    = document.getElementById('ba-'+m.id);
+    const tdA   = document.getElementById('td-act-'+m.id);
+    const tdV   = document.getElementById('td-var-'+m.id);
+    const tbtn  = document.getElementById('tbtn-'+m.id);
+    const pe    = pDate(m.pe);
     if(actStr){
       done++;
       const ad=pDate(actStr), isLate=ad>pe;
@@ -407,11 +361,11 @@ function applyState(){
                     diff===0?'<span class="vtag vt-o">On time</span>':
                     '<span class="vtag vt-l">'+diff+'d late</span>';
       if(tbtn){tbtn.className='tbtn done';tbtn.innerHTML='&#9998; Edit';}
-    } else {
+    }else{
       dot.className='sdot idle';
       ba.style.display='none';
-      tdA.innerHTML='&mdash;'; tdA.style.color='var(--muted)'; tdA.style.fontWeight='400';
-      tdV.innerHTML='<span class="vtag vt-p">Pending</span>';
+      if(tdA){tdA.innerHTML='&mdash;';tdA.style.color='var(--muted)';tdA.style.fontWeight='400';}
+      if(tdV) tdV.innerHTML='<span class="vtag vt-p">Pending</span>';
       if(tbtn){tbtn.className='tbtn';tbtn.textContent='Mark Complete';}
     }
   });
@@ -423,7 +377,7 @@ function applyState(){
   document.getElementById('sv-late').textContent=late;
   document.getElementById('sv-late').style.color=late?'var(--red)':'var(--green)';
   document.getElementById('sv-rem').textContent=31-done;
-  const today=new Date();today.setHours(0,0,0,0);
+  const today=new Date(); today.setHours(0,0,0,0);
   const dl=Math.max(0,dBet(today,DEADLINE));
   document.getElementById('sv-days').textContent=dl;
   document.getElementById('prog-days').textContent=dl+' days remaining';
@@ -431,14 +385,13 @@ function applyState(){
 
 // ── TOOLTIP ───────────────────────────────────────────────────────────────────
 function showTT(e,id){
-  const m=SCHED.find(x=>x.id===id); if(!m) return;
+  const m=SCHED.find(function(x){return x.id===id;}); if(!m) return;
   const actStr=STATE[id], pe=pDate(m.pe);
   let body='<div class="tt-r"><span class="tt-k">Hours</span><span class="tt-v">'+m.h+'h</span></div>'+
     '<div class="tt-r"><span class="tt-k">Plan Start</span><span class="tt-v">'+fmt(pDate(m.ps))+'</span></div>'+
     '<div class="tt-r"><span class="tt-k">Plan End</span><span class="tt-v">'+fmt(pe)+'</span></div>';
   if(actStr){
-    const ad=pDate(actStr),diff=dBet(pe,ad);
-    const cls=diff<0?'g':diff===0?'n':'r';
+    const ad=pDate(actStr),diff=dBet(pe,ad),cls=diff<0?'g':diff===0?'n':'r';
     const lbl=diff<0?(Math.abs(diff)+'d early'):diff===0?'On time':(diff+'d late');
     body+='<hr style="border:none;border-top:1px solid var(--bdr);margin:5px 0">'+
       '<div class="tt-r"><span class="tt-k">Actual</span><span class="tt-v '+cls+'">'+fmt(ad)+'</span></div>'+
@@ -446,7 +399,7 @@ function showTT(e,id){
   }
   document.getElementById('tt-title').textContent='#'+id+' · '+m.name;
   document.getElementById('tt-body').innerHTML=body;
-  document.getElementById('tt-hint').textContent=actStr?'Click to edit':'Click to mark complete';
+  document.getElementById('tt-hint').textContent=GH_TOKEN?(actStr?'Click to edit':'Click to mark complete'):'View only';
   document.getElementById('tt').style.display='block';
   moveTT(e);
 }
@@ -455,12 +408,17 @@ function moveTT(e){
   tt.style.left=(x+tt.offsetWidth>window.innerWidth-10?e.clientX-tt.offsetWidth-14:x)+'px';
   tt.style.top=(y+tt.offsetHeight>window.innerHeight-10?e.clientY-tt.offsetHeight+8:y)+'px';
 }
-function hideTT(){document.getElementById('tt').style.display='none'}
+function hideTT(){document.getElementById('tt').style.display='none';}
 
 // ── MODAL ─────────────────────────────────────────────────────────────────────
 function openModal(id){
+  if(!GH_TOKEN){
+    document.getElementById('token-bar').style.display='flex';
+    document.getElementById('token-input').focus();
+    return;
+  }
   ACTIVE=id;
-  const m=SCHED.find(x=>x.id===id), ex=STATE[id];
+  const m=SCHED.find(function(x){return x.id===id;}), ex=STATE[id];
   document.getElementById('m-title').textContent=ex?'Edit Completion Date':'Mark Module Complete';
   document.getElementById('m-mod').textContent='#'+m.id+' · '+m.name;
   document.getElementById('m-info').innerHTML='<strong>Planned:</strong> '+fmt(pDate(m.ps))+' → '+fmt(pDate(m.pe))+'<br><strong>Hours:</strong> '+m.h+'h · '+Math.ceil(m.h/HPD)+' working days';
@@ -468,37 +426,54 @@ function openModal(id){
   document.getElementById('m-clear').style.display=ex?'inline-block':'none';
   document.getElementById('mbg').classList.add('open');
 }
-function closeModal(){document.getElementById('mbg').classList.remove('open');ACTIVE=null}
-async function saveMod(){
-  if(!ACTIVE) return;
-  const v=document.getElementById('m-date').value;
-  if(!v){alert('Please select a date.');return;}
-  STATE[ACTIVE]=v;
-  closeModal();
-  applyState();
-  await saveState();
-}
-async function clearMod(){
-  if(!ACTIVE) return;
-  if(!confirm('Remove completion date for this module?')) return;
-  delete STATE[ACTIVE];
-  closeModal();
-  applyState();
-  await saveState();
-}
-document.getElementById('mbg').addEventListener('click',function(e){if(e.target===this)closeModal()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+function closeModal(){document.getElementById('mbg').classList.remove('open');ACTIVE=null;}
 
-// ── INIT ─────────────────────────────────────────────────────────────────────
-window.addEventListener('DOMContentLoaded', function(){
-  if(JB_KEY && JB_BIN){
-    document.getElementById('setup-overlay').style.display='none';
-    loadState();
-    // Auto-refresh every 60 seconds for viewers
-    setInterval(loadState, 60000);
-  } else {
-    syncStatus('err','Not configured');
+// ── INIT ──────────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded',function(){
+  // Show token bar if no token (for editors — viewers can ignore it)
+  if(!GH_TOKEN){
+    document.getElementById('token-bar').style.display='flex';
   }
+
+  // Event listeners
+  document.querySelectorAll('.g-lrow[data-id],.g-row[data-id]').forEach(function(el){
+    var id=parseInt(el.dataset.id);
+    el.addEventListener('click',function(){openModal(id);});
+    el.addEventListener('mouseenter',function(e){showTT(e,id);});
+    el.addEventListener('mousemove',function(e){moveTT(e);});
+    el.addEventListener('mouseleave',hideTT);
+  });
+  document.querySelectorAll('.tbtn[data-id]').forEach(function(btn){
+    var id=parseInt(btn.dataset.id);
+    btn.addEventListener('click',function(e){e.stopPropagation();openModal(id);});
+  });
+  document.getElementById('m-close').addEventListener('click',closeModal);
+  document.getElementById('m-cancel').addEventListener('click',closeModal);
+  document.getElementById('m-clear').addEventListener('click',function(){
+    if(!ACTIVE)return;
+    if(!confirm('Remove completion date?'))return;
+    delete STATE[ACTIVE]; closeModal(); applyState(); saveState();
+  });
+  document.getElementById('m-save').addEventListener('click',function(){
+    if(!ACTIVE)return;
+    const v=document.getElementById('m-date').value;
+    if(!v){alert('Please select a date.');return;}
+    STATE[ACTIVE]=v; closeModal(); applyState(); saveState();
+  });
+  document.getElementById('mbg').addEventListener('click',function(e){
+    if(e.target===this) closeModal();
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape') closeModal();
+  });
+  document.getElementById('token-input').addEventListener('keydown',function(e){
+    if(e.key==='Enter') activateToken();
+  });
+
+  // Load data
+  loadState();
+  // Auto-refresh every 60 seconds
+  setInterval(loadState, 60000);
 });
 </script>
 </body>

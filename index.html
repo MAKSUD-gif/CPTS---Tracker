@@ -299,7 +299,7 @@ async function jbCreate(key){
   const r = await fetch(JSONBIN_URL, {
     method:'POST',
     headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Name':'CPTS-Tracker'},
-    body: JSON.stringify({})
+    body: JSON.stringify({"initialized":true})
   });
   if(!r.ok){
     let msg = 'HTTP '+r.status;

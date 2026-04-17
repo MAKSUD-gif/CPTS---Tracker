@@ -9,7 +9,6 @@
 :root{--bg:#f4f6f9;--surf:#fff;--surf2:#f0f3f7;--bdr:#dde3ec;--bdr2:#c8d0dc;--text:#1a2535;--sub:#5a6a80;--muted:#8fa0b5;--accent:#1d6fa4;--accent-lt:#e8f2fa;--htb:#1d8348;--green:#1a7a3c;--green-bg:#eaf6ee;--green-bdr:#82c99a;--red:#c0392b;--red-bg:#fdf0ee;--red-bdr:#e8a09a;--orange:#c87a00;--plan-bg:#dbeeff;--plan-bdr:#5baee8;--lw:272px;--rh:40px;--hh:64px}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased}
-/* APPBAR */
 .appbar{background:var(--surf);border-bottom:1px solid var(--bdr);padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.06)}
 .ab-left{display:flex;align-items:center;gap:12px}
 .htb-badge{background:var(--htb);color:#fff;font-family:"Rajdhani",sans-serif;font-weight:700;font-size:11px;padding:5px 11px;border-radius:4px;letter-spacing:2.5px;flex-shrink:0}
@@ -20,42 +19,45 @@ body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min
 .stat{padding:0 12px;min-width:70px;border:1px solid var(--bdr);border-radius:6px;background:var(--surf2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;height:38px}
 .stat .v{font-family:"Rajdhani",sans-serif;font-size:17px;font-weight:700;line-height:1;color:var(--accent)}
 .stat .l{font-size:7px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-weight:500}
-/* SYNC STATUS */
 .sync-bar{display:flex;align-items:center;gap:8px;font-size:10px;color:var(--muted);background:var(--surf2);border:1px solid var(--bdr);border-radius:6px;padding:0 12px;height:38px;white-space:nowrap}
 .sync-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;background:var(--bdr2)}
 .sync-dot.ok{background:var(--green);box-shadow:0 0 5px var(--green)}
 .sync-dot.err{background:var(--red)}
 .sync-dot.spin{background:var(--orange);animation:blink 1s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-/* SETUP OVERLAY */
-.setup-overlay{position:fixed;inset:0;background:rgba(10,20,40,.6);z-index:1000;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
-.setup-box{background:var(--surf);border:1px solid var(--bdr);border-radius:14px;padding:32px 36px;width:500px;max-width:95vw;box-shadow:0 8px 40px rgba(0,0,0,.18)}
-.setup-box h2{font-family:"Rajdhani",sans-serif;font-size:22px;font-weight:700;color:var(--text);margin-bottom:6px}
-.setup-box p{font-size:11px;color:var(--sub);line-height:1.7;margin-bottom:18px}
-.setup-box .step{background:var(--surf2);border:1px solid var(--bdr);border-radius:6px;padding:10px 14px;margin-bottom:10px;font-size:10.5px;color:var(--sub);line-height:1.6}
-.setup-box .step b{color:var(--text)}
-.setup-box .step a{color:var(--accent);text-decoration:none;font-weight:600}
-.setup-box .step a:hover{text-decoration:underline}
-.sinput{width:100%;background:var(--surf);border:1px solid var(--bdr2);border-radius:5px;padding:9px 12px;color:var(--text);font-family:"DM Sans",sans-serif;font-size:12px;outline:none;margin-top:6px;transition:border-color .12s;color-scheme:light}
-.sinput:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(29,111,164,.1)}
-.slbl{display:block;font-size:9px;color:var(--sub);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-top:14px;margin-bottom:4px}
-.setup-err{font-size:10px;color:var(--red);margin-top:6px;min-height:16px}
-.sbtn{font-family:"DM Sans",sans-serif;font-size:11px;font-weight:700;padding:10px 22px;border-radius:6px;cursor:pointer;border:none;background:var(--accent);color:#fff;margin-top:16px;transition:background .12s;width:100%}
-.sbtn:hover{background:#186091}
-.sbtn:disabled{background:var(--muted);cursor:not-allowed}
-/* PROGRESS */
+/* OVERLAYS */
+.overlay{position:fixed;inset:0;background:rgba(10,20,40,.6);z-index:1000;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.overlay-box{background:var(--surf);border:1px solid var(--bdr);border-radius:14px;padding:32px 36px;width:500px;max-width:95vw;box-shadow:0 8px 40px rgba(0,0,0,.18)}
+.overlay-box h2{font-family:"Rajdhani",sans-serif;font-size:22px;font-weight:700;color:var(--text);margin-bottom:8px}
+.overlay-box p{font-size:11px;color:var(--sub);line-height:1.7;margin-bottom:16px}
+.step-box{background:var(--surf2);border:1px solid var(--bdr);border-radius:6px;padding:10px 14px;margin-bottom:10px;font-size:10.5px;color:var(--sub);line-height:1.6}
+.step-box b{color:var(--text)}
+.step-box a{color:var(--accent);text-decoration:none;font-weight:600}
+.o-lbl{display:block;font-size:9px;color:var(--sub);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-top:14px;margin-bottom:4px}
+.o-input{width:100%;background:var(--surf);border:1px solid var(--bdr2);border-radius:5px;padding:9px 12px;color:var(--text);font-family:"DM Sans",sans-serif;font-size:12px;outline:none;margin-top:4px;transition:border-color .12s;color-scheme:light}
+.o-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(29,111,164,.1)}
+.o-err{font-size:10px;color:var(--red);margin-top:6px;min-height:16px}
+.o-btn{font-family:"DM Sans",sans-serif;font-size:11px;font-weight:700;padding:10px 22px;border-radius:6px;cursor:pointer;border:none;background:var(--accent);color:#fff;margin-top:16px;transition:background .12s;width:100%}
+.o-btn:hover{background:#186091}
+.o-btn:disabled{background:var(--muted);cursor:not-allowed}
+.o-btn.green{background:var(--htb)}.o-btn.green:hover{background:#166138}
+.success-box{background:var(--green-bg);border:1px solid var(--green-bdr);border-radius:8px;padding:14px 16px;margin-top:14px;font-size:10.5px;color:var(--green);line-height:1.7}
+.success-box b{font-weight:700}
+.code-box{background:#1a2535;color:#9fef00;border-radius:5px;padding:8px 12px;font-family:monospace;font-size:11px;word-break:break-all;margin:6px 0;user-select:all}
+/* EDIT KEY PROMPT */
+.edit-key-bar{background:var(--orange-bg,#fff8e6);border-bottom:1px solid #f0d080;padding:7px 20px;display:flex;align-items:center;gap:12px;font-size:10.5px;color:var(--orange)}
+.edit-key-bar input{flex:1;border:1px solid #f0d080;border-radius:4px;padding:5px 10px;font-size:11px;color:var(--text);background:#fff;outline:none}
+.edit-key-bar button{font-family:"DM Sans",sans-serif;font-size:10.5px;font-weight:600;padding:5px 14px;border-radius:4px;cursor:pointer;border:none;background:var(--orange);color:#fff}
 .prog-strip{background:var(--surf);border-bottom:1px solid var(--bdr);padding:9px 20px;display:flex;align-items:center;gap:12px}
 .prog-pct{font-family:"Rajdhani",sans-serif;font-size:16px;font-weight:700;color:var(--green);min-width:44px}
 .prog-track{flex:1;height:6px;background:var(--surf2);border-radius:4px;border:1px solid var(--bdr);overflow:hidden}
 .prog-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--green));border-radius:4px;transition:width .5s}
 .prog-info{font-size:9.5px;color:var(--sub);text-align:right;line-height:1.6;white-space:nowrap}
 .prog-info b{color:var(--orange);font-weight:600}
-/* LEGEND */
 .legend{background:var(--surf2);border-bottom:1px solid var(--bdr);padding:7px 20px;display:flex;gap:20px;flex-wrap:wrap;align-items:center}
 .leg{display:flex;align-items:center;gap:7px;font-size:9px;color:var(--sub);text-transform:uppercase;letter-spacing:.5px;font-weight:500}
 .leg-sw{width:26px;height:7px;border-radius:3px}
 .leg-line{width:2px;height:13px}
-/* GANTT */
 .gantt-outer{overflow-x:auto;padding:18px 20px 0}
 .gantt-inner{display:flex;min-width:1100px;background:var(--surf);border-radius:6px 6px 0 0;border:1px solid var(--bdr);box-shadow:0 1px 4px rgba(0,0,0,.07)}
 .g-labels{width:var(--lw);flex-shrink:0;border-right:1px solid var(--bdr);position:sticky;left:0;z-index:20;background:var(--surf)}
@@ -64,9 +66,7 @@ body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min
 .g-lrow{height:var(--rh);display:flex;align-items:center;padding:0 10px;gap:6px;border-bottom:1px solid var(--bdr);cursor:pointer;transition:background .1s}
 .g-lrow:hover{background:#f0f6ff}
 .sdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-.sdot.idle{background:var(--bdr2)}
-.sdot.good{background:var(--green);box-shadow:0 0 4px var(--green)}
-.sdot.late{background:var(--red);box-shadow:0 0 4px var(--red)}
+.sdot.idle{background:var(--bdr2)}.sdot.good{background:var(--green);box-shadow:0 0 4px var(--green)}.sdot.late{background:var(--red);box-shadow:0 0 4px var(--red)}
 .g-num{font-size:9px;color:var(--muted);min-width:15px;text-align:right;font-weight:500}
 .g-name{font-size:10.5px;color:var(--text);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .g-hrs{font-size:9px;color:var(--sub);background:var(--surf2);border:1px solid var(--bdr);padding:1px 5px;border-radius:3px;font-weight:500}
@@ -97,8 +97,6 @@ body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min
 .tt-r{display:flex;justify-content:space-between;gap:12px;margin:2.5px 0}
 .tt-k{color:var(--muted)}.tt-v{color:var(--accent);font-weight:500}
 .tt-v.g{color:var(--green)}.tt-v.r{color:var(--red)}.tt-v.n{color:var(--sub)}
-.tt-div{border:none;border-top:1px solid var(--bdr);margin:5px 0}
-.tt-hint{font-size:8px;color:var(--muted);font-style:italic;margin-top:4px}
 .mbg{position:fixed;inset:0;background:rgba(10,20,40,.45);z-index:500;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .18s;backdrop-filter:blur(4px)}
 .mbg.open{opacity:1;pointer-events:all}
 .modal{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:24px 26px;width:430px;max-width:95vw;box-shadow:0 4px 24px rgba(0,0,0,.12);transform:translateY(10px);transition:transform .18s}
@@ -138,37 +136,50 @@ body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min
 .tbtn.done{border-color:var(--green-bdr);color:var(--green);background:var(--green-bg)}
 .footer{border-top:1px solid var(--bdr);background:var(--surf);padding:12px 20px;text-align:center;font-size:9.5px;color:var(--muted)}
 .footer a{color:var(--accent);text-decoration:none;font-weight:500}
-::-webkit-scrollbar{width:6px;height:6px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--bdr2);border-radius:4px}
+::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--bdr2);border-radius:4px}
 </style>
 </head>
 <body>
 
-<!-- ── SETUP OVERLAY (shown if not configured) ── -->
-<div class="setup-overlay" id="setup-overlay">
-  <div class="setup-box">
-    <h2>&#128274; One-time Setup</h2>
-    <p>This tracker uses <b>JSONBin.io</b> as shared storage — free, no server needed.<br>
-    Complete these steps once. After that, everyone sees the same data automatically.</p>
-
-    <div class="step">
-      <b>Step 1.</b> Go to <a href="https://jsonbin.io" target="_blank">jsonbin.io</a> &rarr; Sign up free &rarr; Go to <b>API Keys</b> &rarr; copy your <b>Master Key</b>
-    </div>
-    <div class="step">
-      <b>Step 2.</b> Paste the Master Key below and click <b>Connect</b>.<br>
-      A shared storage space will be created automatically.
-    </div>
-
-    <label class="slbl" for="s-key">Master Key (from JSONBin dashboard)</label>
-    <input class="sinput" id="s-key" type="password" placeholder="$2a$10$...">
-    <div class="setup-err" id="setup-err"></div>
-
-    <button class="sbtn" id="setup-btn" onclick="doSetup()">Connect &amp; Start</button>
+<!-- SETUP OVERLAY — only shown when BAKED_BIN_ID is empty -->
+<div class="overlay" id="setup-overlay" style="display:none">
+  <div class="overlay-box">
+    <h2>One-time Setup</h2>
+    <p>Do this once. After setup you will download a configured file — upload that to GitHub and everyone will see data automatically with no login required.</p>
+    <div class="step-box"><b>Step 1.</b> Go to <a href="https://jsonbin.io" target="_blank">jsonbin.io</a> &rarr; Sign up free &rarr; <b>API Keys</b> &rarr; copy your <b>Master Key</b></div>
+    <div class="step-box"><b>Step 2.</b> Paste your Master Key below and click <b>Setup</b>. A shared storage bin will be created automatically.</div>
+    <label class="o-lbl" for="s-key">Master Key</label>
+    <input class="o-input" id="s-key" type="password" placeholder="$2a$10$...">
+    <div class="o-err" id="setup-err"></div>
+    <button class="o-btn" id="setup-btn" onclick="doSetup()">Setup & Download Configured File</button>
   </div>
 </div>
 
-<!-- ── APP BAR ── -->
+<!-- SUCCESS OVERLAY — shown after setup, prompts download -->
+<div class="overlay" id="success-overlay" style="display:none">
+  <div class="overlay-box">
+    <h2>Setup Complete!</h2>
+    <p>Your shared storage is ready. Now do the following:</p>
+    <div class="step-box"><b>Step 1.</b> Click the button below to download the configured file.</div>
+    <div class="step-box"><b>Step 2.</b> Upload that file to your GitHub repository, replacing the current one.</div>
+    <div class="step-box"><b>Step 3.</b> From now on, anyone who opens the GitHub Pages link sees live data. No setup needed for anyone else.</div>
+    <div class="success-box">
+      Your Bin ID (saved inside the file):<br>
+      <div class="code-box" id="bin-id-display"></div>
+      Keep your Master Key private. The Bin ID is safe to share.
+    </div>
+    <button class="o-btn green" onclick="downloadConfigured()">Download Configured File</button>
+  </div>
+</div>
+
+<!-- EDIT KEY BAR — shown when bin is configured but no write key in localStorage -->
+<div class="edit-key-bar" id="edit-key-bar" style="display:none">
+  <span>Student / Instructor:</span>
+  <input type="password" id="edit-key-input" placeholder="Paste Master Key to enable editing...">
+  <button onclick="activateEditKey()">Unlock Editing</button>
+  <span id="edit-key-err" style="color:var(--red);font-size:9.5px"></span>
+</div>
+
 <header class="appbar">
   <div class="ab-left">
     <div class="htb-badge">HTB</div>
@@ -186,8 +197,12 @@ body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min
     </div>
     <div class="sync-bar" id="sync-bar">
       <div class="sync-dot" id="sync-dot"></div>
-      <span id="sync-txt">Connecting...</span>
+      <span id="sync-txt">Loading...</span>
     </div>
+    <button id="dl-cfg-btn" onclick="downloadConfigured()" title="Download the configured file to upload to GitHub"
+      style="display:none;font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:700;padding:0 14px;height:38px;border-radius:6px;cursor:pointer;border:none;background:var(--htb);color:#fff;white-space:nowrap;flex-shrink:0">
+      Download Configured File
+    </button>
   </div>
 </header>
 
@@ -219,7 +234,7 @@ body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min
       <div class="g-rows-area" style="position:relative">
         <div style="position:absolute;inset:0;pointer-events:none;z-index:2"><div class="vline month" style="left:13.761%"></div><div class="vline month" style="left:27.982%"></div><div class="vline month" style="left:41.743%"></div><div class="vline month" style="left:55.963%"></div><div class="vline month" style="left:70.183%"></div><div class="vline month" style="left:83.945%"></div><div class="vline month" style="left:98.165%"></div></div>
         <div class="today-line" style="left:7.339%;height:1240px"><div class="today-lbl">Today</div></div>
-        <div class="ddl-line"   style="left:88.073%;height:1240px"><div class="ddl-lbl">Oct 10 &#171;</div></div>
+        <div class="ddl-line" style="left:88.073%;height:1240px"><div class="ddl-lbl">Oct 10 &#171;</div></div>
         <div class="g-row" data-id="1" onclick="openModal(1)" style="background:#ffffff" onmouseenter="showTT(event,1)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:0.9174%;width:0.9174%"></div><div class="bar bar-actual" id="ba-1" style="display:none"></div></div><div class="g-row" data-id="2" onclick="openModal(2)" style="background:#f7f9fc" onmouseenter="showTT(event,2)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:2.2936%;width:0.9174%"></div><div class="bar bar-actual" id="ba-2" style="display:none"></div></div><div class="g-row" data-id="3" onclick="openModal(3)" style="background:#ffffff" onmouseenter="showTT(event,3)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:3.2110%;width:0.5000%"></div><div class="bar bar-actual" id="ba-3" style="display:none"></div></div><div class="g-row" data-id="4" onclick="openModal(4)" style="background:#f7f9fc" onmouseenter="showTT(event,4)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:3.6697%;width:2.2936%"></div><div class="bar bar-actual" id="ba-4" style="display:none"></div></div><div class="g-row" data-id="5" onclick="openModal(5)" style="background:#ffffff" onmouseenter="showTT(event,5)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:5.9633%;width:0.5000%"></div><div class="bar bar-actual" id="ba-5" style="display:none"></div></div><div class="g-row" data-id="6" onclick="openModal(6)" style="background:#f7f9fc" onmouseenter="showTT(event,6)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:6.4220%;width:0.5000%"></div><div class="bar bar-actual" id="ba-6" style="display:none"></div></div><div class="g-row" data-id="7" onclick="openModal(7)" style="background:#ffffff" onmouseenter="showTT(event,7)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:6.8807%;width:0.5000%"></div><div class="bar bar-actual" id="ba-7" style="display:none"></div></div><div class="g-row" data-id="8" onclick="openModal(8)" style="background:#f7f9fc" onmouseenter="showTT(event,8)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:7.3394%;width:0.9174%"></div><div class="bar bar-actual" id="ba-8" style="display:none"></div></div><div class="g-row" data-id="9" onclick="openModal(9)" style="background:#ffffff" onmouseenter="showTT(event,9)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:8.7156%;width:0.5000%"></div><div class="bar bar-actual" id="ba-9" style="display:none"></div></div><div class="g-row" data-id="10" onclick="openModal(10)" style="background:#f7f9fc" onmouseenter="showTT(event,10)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:9.1743%;width:1.8349%"></div><div class="bar bar-actual" id="ba-10" style="display:none"></div></div><div class="g-row" data-id="11" onclick="openModal(11)" style="background:#ffffff" onmouseenter="showTT(event,11)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:11.0092%;width:0.5000%"></div><div class="bar bar-actual" id="ba-11" style="display:none"></div></div><div class="g-row" data-id="12" onclick="openModal(12)" style="background:#f7f9fc" onmouseenter="showTT(event,12)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:11.9266%;width:0.5000%"></div><div class="bar bar-actual" id="ba-12" style="display:none"></div></div><div class="g-row" data-id="13" onclick="openModal(13)" style="background:#ffffff" onmouseenter="showTT(event,13)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:12.3853%;width:0.9174%"></div><div class="bar bar-actual" id="ba-13" style="display:none"></div></div><div class="g-row" data-id="14" onclick="openModal(14)" style="background:#f7f9fc" onmouseenter="showTT(event,14)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:13.3028%;width:1.3761%"></div><div class="bar bar-actual" id="ba-14" style="display:none"></div></div><div class="g-row" data-id="15" onclick="openModal(15)" style="background:#ffffff" onmouseenter="showTT(event,15)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:15.1376%;width:4.1284%"></div><div class="bar bar-actual" id="ba-15" style="display:none"></div></div><div class="g-row" data-id="16" onclick="openModal(16)" style="background:#f7f9fc" onmouseenter="showTT(event,16)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:19.2661%;width:0.5000%"></div><div class="bar bar-actual" id="ba-16" style="display:none"></div></div><div class="g-row" data-id="17" onclick="openModal(17)" style="background:#ffffff" onmouseenter="showTT(event,17)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:19.7248%;width:0.5000%"></div><div class="bar bar-actual" id="ba-17" style="display:none"></div></div><div class="g-row" data-id="18" onclick="openModal(18)" style="background:#f7f9fc" onmouseenter="showTT(event,18)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:20.1835%;width:0.5000%"></div><div class="bar bar-actual" id="ba-18" style="display:none"></div></div><div class="g-row" data-id="19" onclick="openModal(19)" style="background:#ffffff" onmouseenter="showTT(event,19)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:20.6422%;width:0.5000%"></div><div class="bar bar-actual" id="ba-19" style="display:none"></div></div><div class="g-row" data-id="20" onclick="openModal(20)" style="background:#f7f9fc" onmouseenter="showTT(event,20)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:21.5596%;width:0.5000%"></div><div class="bar bar-actual" id="ba-20" style="display:none"></div></div><div class="g-row" data-id="21" onclick="openModal(21)" style="background:#ffffff" onmouseenter="showTT(event,21)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:22.0183%;width:0.5000%"></div><div class="bar bar-actual" id="ba-21" style="display:none"></div></div><div class="g-row" data-id="22" onclick="openModal(22)" style="background:#f7f9fc" onmouseenter="showTT(event,22)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:22.4771%;width:0.5000%"></div><div class="bar bar-actual" id="ba-22" style="display:none"></div></div><div class="g-row" data-id="23" onclick="openModal(23)" style="background:#ffffff" onmouseenter="showTT(event,23)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:22.9358%;width:0.5000%"></div><div class="bar bar-actual" id="ba-23" style="display:none"></div></div><div class="g-row" data-id="24" onclick="openModal(24)" style="background:#f7f9fc" onmouseenter="showTT(event,24)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:23.3945%;width:0.5000%"></div><div class="bar bar-actual" id="ba-24" style="display:none"></div></div><div class="g-row" data-id="25" onclick="openModal(25)" style="background:#ffffff" onmouseenter="showTT(event,25)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:23.8532%;width:1.3761%"></div><div class="bar bar-actual" id="ba-25" style="display:none"></div></div><div class="g-row" data-id="26" onclick="openModal(26)" style="background:#f7f9fc" onmouseenter="showTT(event,26)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:25.2294%;width:1.3761%"></div><div class="bar bar-actual" id="ba-26" style="display:none"></div></div><div class="g-row" data-id="27" onclick="openModal(27)" style="background:#ffffff" onmouseenter="showTT(event,27)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:26.6055%;width:1.8349%"></div><div class="bar bar-actual" id="ba-27" style="display:none"></div></div><div class="g-row" data-id="28" onclick="openModal(28)" style="background:#f7f9fc" onmouseenter="showTT(event,28)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:28.4404%;width:1.3761%"></div><div class="bar bar-actual" id="ba-28" style="display:none"></div></div><div class="g-row" data-id="29" onclick="openModal(29)" style="background:#ffffff" onmouseenter="showTT(event,29)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:29.8165%;width:2.2936%"></div><div class="bar bar-actual" id="ba-29" style="display:none"></div></div><div class="g-row" data-id="30" onclick="openModal(30)" style="background:#f7f9fc" onmouseenter="showTT(event,30)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:32.1101%;width:0.5000%"></div><div class="bar bar-actual" id="ba-30" style="display:none"></div></div><div class="g-row" data-id="31" onclick="openModal(31)" style="background:#ffffff" onmouseenter="showTT(event,31)" onmousemove="moveTT(event)" onmouseleave="hideTT()"><div class="bar bar-plan" style="left:32.5688%;width:2.7523%"></div><div class="bar bar-actual" id="ba-31" style="display:none"></div></div>
       </div>
     </div>
@@ -239,11 +254,7 @@ body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min
     </table>
   </div>
 </div>
-
-<div class="footer">
-  Hours reference: <a href="https://www.brunorochamoura.com/posts/road-to-cpts/" target="_blank">Road to HTB CPTS</a> by Bruno Rocha Moura &nbsp;&middot;&nbsp;
-  30 hrs/week &middot; Mon&ndash;Sat &middot; 5 hrs/day &nbsp;&middot;&nbsp; Planned finish: 16 Jun 2026
-</div>
+<div class="footer">Hours reference: <a href="https://www.brunorochamoura.com/posts/road-to-cpts/" target="_blank">Road to HTB CPTS</a> by Bruno Rocha Moura &nbsp;&middot;&nbsp; 30 hrs/week &middot; Mon&ndash;Sat &middot; 5 hrs/day &nbsp;&middot;&nbsp; Planned finish: 16 Jun 2026</div>
 
 <div id="tt"><div class="tt-title" id="tt-title"></div><hr style="border:none;border-top:1px solid var(--bdr);margin:5px 0"><div id="tt-body"></div><div class="tt-hint" id="tt-hint"></div></div>
 
@@ -256,7 +267,7 @@ body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min
     <div class="mact">
       <button class="btn btn-del btn-del-space" id="m-clear" onclick="clearMod()" style="display:none">&#x2715; Clear</button>
       <button class="btn btn-no" onclick="closeModal()">Cancel</button>
-      <button class="btn btn-ok" id="m-save" onclick="saveMod()">&#x2714; Confirm</button>
+      <button class="btn btn-ok" onclick="saveMod()">&#x2714; Confirm</button>
     </div>
   </div>
 </div>
@@ -264,20 +275,23 @@ body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min
 <script>
 'use strict';
 
-// ── JSONBin config (stored in localStorage per device after setup) ─────────────
+// ── BAKED CONFIG — this line is replaced when you download the configured file ──
+const BAKED_BIN_ID = ''; /* %%BIN_ID%% */
+
 const JSONBIN_URL = 'https://api.jsonbin.io/v3/b';
-const LS_KEY      = 'cpts_jb_key';
-const LS_BIN      = 'cpts_jb_bin';
+const LS_KEY = 'cpts_master_key';  // Master key stored locally (write access only)
 
 let JB_KEY = localStorage.getItem(LS_KEY) || '';
-let JB_BIN = localStorage.getItem(LS_BIN) || '';
+let JB_BIN = BAKED_BIN_ID;
 let STATE  = {};
 let ACTIVE = null;
 let _saving = false;
+let _newBinId = '';
+let _newKey   = '';
 
-const SCHED = [{id:1,name:"Penetration Testing Process",h:7.9,ps:"2026-04-03",pe:"2026-04-04",left:0.9174,width:0.9174},{id:2,name:"Getting Started",h:6.5,ps:"2026-04-06",pe:"2026-04-07",left:2.2936,width:0.9174},{id:3,name:"Network Enumeration With Nmap",h:3.5,ps:"2026-04-08",pe:"2026-04-08",left:3.2110,width:0.5000},{id:4,name:"Footprinting",h:18.0,ps:"2026-04-09",pe:"2026-04-13",left:3.6697,width:2.2936},{id:5,name:"Information Gathering - Web",h:4.2,ps:"2026-04-14",pe:"2026-04-14",left:5.9633,width:0.5000},{id:6,name:"Vulnerability Assessment",h:2.4,ps:"2026-04-15",pe:"2026-04-15",left:6.4220,width:0.5000},{id:7,name:"File Transfers",h:4.6,ps:"2026-04-16",pe:"2026-04-16",left:6.8807,width:0.5000},{id:8,name:"Shells & Payloads",h:5.1,ps:"2026-04-17",pe:"2026-04-18",left:7.3394,width:0.9174},{id:9,name:"Using The Metasploit Framework",h:5.0,ps:"2026-04-20",pe:"2026-04-20",left:8.7156,width:0.5000},{id:10,name:"Password Attacks",h:19.5,ps:"2026-04-21",pe:"2026-04-24",left:9.1743,width:1.8349},{id:11,name:"Windows Fundamentals",h:2.5,ps:"2026-04-25",pe:"2026-04-25",left:11.0092,width:0.5000},{id:12,name:"Intro to Active Directory",h:3.6,ps:"2026-04-27",pe:"2026-04-27",left:11.9266,width:0.5000},{id:13,name:"Attacking Common Services",h:7.2,ps:"2026-04-28",pe:"2026-04-29",left:12.3853,width:0.9174},{id:14,name:"Pivoting, Tunneling & Port Fwd",h:13.4,ps:"2026-04-30",pe:"2026-05-02",left:13.3028,width:1.3761},{id:15,name:"Active Directory Enum & Attacks",h:38.1,ps:"2026-05-04",pe:"2026-05-12",left:15.1376,width:4.1284},{id:16,name:"Using Web Proxies",h:1.8,ps:"2026-05-13",pe:"2026-05-13",left:19.2661,width:0.5000},{id:17,name:"Attacking Web Apps w/ FFUF",h:1.8,ps:"2026-05-14",pe:"2026-05-14",left:19.7248,width:0.5000},{id:18,name:"Login Brute Forcing",h:1.2,ps:"2026-05-15",pe:"2026-05-15",left:20.1835,width:0.5000},{id:19,name:"SQL Injection Fundamentals",h:2.9,ps:"2026-05-16",pe:"2026-05-16",left:20.6422,width:0.5000},{id:20,name:"SQLMap Essentials",h:2.4,ps:"2026-05-18",pe:"2026-05-18",left:21.5596,width:0.5000},{id:21,name:"Cross-Site Scripting (XSS)",h:2.4,ps:"2026-05-19",pe:"2026-05-19",left:22.0183,width:0.5000},{id:22,name:"File Inclusion",h:3.7,ps:"2026-05-20",pe:"2026-05-20",left:22.4771,width:0.5000},{id:23,name:"File Upload Attacks",h:4.6,ps:"2026-05-21",pe:"2026-05-21",left:22.9358,width:0.5000},{id:24,name:"Command Injections",h:2.8,ps:"2026-05-22",pe:"2026-05-22",left:23.3945,width:0.5000},{id:25,name:"Web Attacks",h:5.2,ps:"2026-05-23",pe:"2026-05-25",left:23.8532,width:1.3761},{id:26,name:"Attacking Common Applications",h:13.6,ps:"2026-05-26",pe:"2026-05-28",left:25.2294,width:1.3761},{id:27,name:"Linux Privilege Escalation",h:13.2,ps:"2026-05-29",pe:"2026-06-01",left:26.6055,width:1.8349},{id:28,name:"Using CrackMapExec",h:14.7,ps:"2026-06-02",pe:"2026-06-04",left:28.4404,width:1.3761},{id:29,name:"Windows Privilege Escalation",h:17.9,ps:"2026-06-05",pe:"2026-06-09",left:29.8165,width:2.2936},{id:30,name:"Documentation and Reporting",h:4.8,ps:"2026-06-10",pe:"2026-06-10",left:32.1101,width:0.5000},{id:31,name:"Attacking Enterprise Networks",h:24.6,ps:"2026-06-11",pe:"2026-06-16",left:32.5688,width:2.7523}];
-const HPD=5, MS=86400000;
-const TL_START=new Date('2026-04-01'), TL_END=new Date('2026-11-05');
+const SCHED=[{id:1,name:"Penetration Testing Process",h:7.9,ps:"2026-04-03",pe:"2026-04-04",left:0.9174,width:0.9174},{id:2,name:"Getting Started",h:6.5,ps:"2026-04-06",pe:"2026-04-07",left:2.2936,width:0.9174},{id:3,name:"Network Enumeration With Nmap",h:3.5,ps:"2026-04-08",pe:"2026-04-08",left:3.2110,width:0.5000},{id:4,name:"Footprinting",h:18.0,ps:"2026-04-09",pe:"2026-04-13",left:3.6697,width:2.2936},{id:5,name:"Information Gathering - Web",h:4.2,ps:"2026-04-14",pe:"2026-04-14",left:5.9633,width:0.5000},{id:6,name:"Vulnerability Assessment",h:2.4,ps:"2026-04-15",pe:"2026-04-15",left:6.4220,width:0.5000},{id:7,name:"File Transfers",h:4.6,ps:"2026-04-16",pe:"2026-04-16",left:6.8807,width:0.5000},{id:8,name:"Shells & Payloads",h:5.1,ps:"2026-04-17",pe:"2026-04-18",left:7.3394,width:0.9174},{id:9,name:"Using The Metasploit Framework",h:5.0,ps:"2026-04-20",pe:"2026-04-20",left:8.7156,width:0.5000},{id:10,name:"Password Attacks",h:19.5,ps:"2026-04-21",pe:"2026-04-24",left:9.1743,width:1.8349},{id:11,name:"Windows Fundamentals",h:2.5,ps:"2026-04-25",pe:"2026-04-25",left:11.0092,width:0.5000},{id:12,name:"Intro to Active Directory",h:3.6,ps:"2026-04-27",pe:"2026-04-27",left:11.9266,width:0.5000},{id:13,name:"Attacking Common Services",h:7.2,ps:"2026-04-28",pe:"2026-04-29",left:12.3853,width:0.9174},{id:14,name:"Pivoting, Tunneling & Port Fwd",h:13.4,ps:"2026-04-30",pe:"2026-05-02",left:13.3028,width:1.3761},{id:15,name:"Active Directory Enum & Attacks",h:38.1,ps:"2026-05-04",pe:"2026-05-12",left:15.1376,width:4.1284},{id:16,name:"Using Web Proxies",h:1.8,ps:"2026-05-13",pe:"2026-05-13",left:19.2661,width:0.5000},{id:17,name:"Attacking Web Apps w/ FFUF",h:1.8,ps:"2026-05-14",pe:"2026-05-14",left:19.7248,width:0.5000},{id:18,name:"Login Brute Forcing",h:1.2,ps:"2026-05-15",pe:"2026-05-15",left:20.1835,width:0.5000},{id:19,name:"SQL Injection Fundamentals",h:2.9,ps:"2026-05-16",pe:"2026-05-16",left:20.6422,width:0.5000},{id:20,name:"SQLMap Essentials",h:2.4,ps:"2026-05-18",pe:"2026-05-18",left:21.5596,width:0.5000},{id:21,name:"Cross-Site Scripting (XSS)",h:2.4,ps:"2026-05-19",pe:"2026-05-19",left:22.0183,width:0.5000},{id:22,name:"File Inclusion",h:3.7,ps:"2026-05-20",pe:"2026-05-20",left:22.4771,width:0.5000},{id:23,name:"File Upload Attacks",h:4.6,ps:"2026-05-21",pe:"2026-05-21",left:22.9358,width:0.5000},{id:24,name:"Command Injections",h:2.8,ps:"2026-05-22",pe:"2026-05-22",left:23.3945,width:0.5000},{id:25,name:"Web Attacks",h:5.2,ps:"2026-05-23",pe:"2026-05-25",left:23.8532,width:1.3761},{id:26,name:"Attacking Common Applications",h:13.6,ps:"2026-05-26",pe:"2026-05-28",left:25.2294,width:1.3761},{id:27,name:"Linux Privilege Escalation",h:13.2,ps:"2026-05-29",pe:"2026-06-01",left:26.6055,width:1.8349},{id:28,name:"Using CrackMapExec",h:14.7,ps:"2026-06-02",pe:"2026-06-04",left:28.4404,width:1.3761},{id:29,name:"Windows Privilege Escalation",h:17.9,ps:"2026-06-05",pe:"2026-06-09",left:29.8165,width:2.2936},{id:30,name:"Documentation and Reporting",h:4.8,ps:"2026-06-10",pe:"2026-06-10",left:32.1101,width:0.5000},{id:31,name:"Attacking Enterprise Networks",h:24.6,ps:"2026-06-11",pe:"2026-06-16",left:32.5688,width:2.7523}];
+const HPD=5,MS=86400000;
+const TL_START=new Date('2026-04-01'),TL_END=new Date('2026-11-05');
 const DEADLINE=new Date('2026-10-10');
 
 function pDate(s){return new Date(s+'T00:00:00')}
@@ -286,132 +300,156 @@ function fmt(d){return d.toLocaleDateString('en-GB',{day:'2-digit',month:'short'
 function iso(d){return d.toISOString().split('T')[0]}
 function xPct(d){return Math.max(0,Math.min(100,((d-TL_START)/(TL_END-TL_START))*100))}
 
-// ── SYNC STATUS UI ────────────────────────────────────────────────────────────
-function syncStatus(state, msg){
-  const dot = document.getElementById('sync-dot');
-  const txt = document.getElementById('sync-txt');
-  dot.className = 'sync-dot ' + (state==='ok'?'ok':state==='err'?'err':'spin');
-  txt.textContent = msg;
+function syncStatus(state,msg){
+  const dot=document.getElementById('sync-dot'),txt=document.getElementById('sync-txt');
+  dot.className='sync-dot '+(state==='ok'?'ok':state==='err'?'err':'spin');
+  txt.textContent=msg;
 }
 
 // ── JSONBIN API ───────────────────────────────────────────────────────────────
 async function jbCreate(key){
-  const r = await fetch(JSONBIN_URL, {
+  const r=await fetch(JSONBIN_URL,{
     method:'POST',
-    headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Name':'CPTS-Tracker'},
-    body: JSON.stringify({"initialized":true})
+    headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Name':'CPTS-Tracker','X-Bin-Private':'false'},
+    body:JSON.stringify({"initialized":true})
   });
-  if(!r.ok){
-    let msg = 'HTTP '+r.status;
-    try{ const t=await r.text(); msg+=' — '+t.slice(0,120); }catch{}
-    throw new Error(msg);
-  }
-  const d = await r.json();
-  return d.metadata.id;
+  if(!r.ok){let t='';try{t=await r.text();}catch{} throw new Error('HTTP '+r.status+(t?' — '+t.slice(0,100):''));}
+  const d=await r.json(); return d.metadata.id;
 }
 
+// Public read — no key needed for public bins
 async function jbRead(){
-  const r = await fetch(JSONBIN_URL+'/'+JB_BIN+'/latest', {
-    headers:{'X-Master-Key':JB_KEY}
-  });
+  const headers={};
+  if(JB_KEY) headers['X-Master-Key']=JB_KEY;
+  const r=await fetch(JSONBIN_URL+'/'+JB_BIN+'/latest',{headers});
   if(!r.ok) throw new Error('HTTP '+r.status);
-  const d = await r.json();
-  return d.record || {};
+  const d=await r.json(); return d.record||{};
 }
 
 async function jbWrite(data){
-  const r = await fetch(JSONBIN_URL+'/'+JB_BIN, {
+  const r=await fetch(JSONBIN_URL+'/'+JB_BIN,{
     method:'PUT',
     headers:{'Content-Type':'application/json','X-Master-Key':JB_KEY},
-    body: JSON.stringify(data)
+    body:JSON.stringify(data)
   });
   if(!r.ok) throw new Error('HTTP '+r.status);
 }
 
-// ── SETUP ─────────────────────────────────────────────────────────────────────
+// ── SETUP (first time only) ───────────────────────────────────────────────────
 async function doSetup(){
-  const key = document.getElementById('s-key').value.trim();
-  const err = document.getElementById('setup-err');
-  const btn = document.getElementById('setup-btn');
-  if(!key){ err.textContent='Please paste your Master Key.'; return; }
-  err.textContent='';
-  btn.disabled=true; btn.textContent='Creating storage...';
+  const key=document.getElementById('s-key').value.trim();
+  const err=document.getElementById('setup-err');
+  const btn=document.getElementById('setup-btn');
+  if(!key){err.textContent='Please paste your Master Key.';return;}
+  err.textContent='Creating shared storage...';
+  btn.disabled=true;
   try{
-    const binId = await jbCreate(key);
-    JB_KEY = key; JB_BIN = binId;
-    localStorage.setItem(LS_KEY, key);
-    localStorage.setItem(LS_BIN, binId);
+    const binId=await jbCreate(key);
+    _newBinId=binId; _newKey=key;
     document.getElementById('setup-overlay').style.display='none';
-    syncStatus('ok','Connected');
-    applyState();
-  } catch(e){
-    err.textContent='Failed: ' + e.message;
-    btn.disabled=false; btn.textContent='Connect & Start';
+    document.getElementById('bin-id-display').textContent=binId;
+    document.getElementById('success-overlay').style.display='flex';
+  }catch(e){
+    err.textContent='Failed: '+e.message;
+    btn.disabled=false;
   }
 }
 
-// ── LOAD from JSONBin ─────────────────────────────────────────────────────────
+// ── DOWNLOAD CONFIGURED FILE ──────────────────────────────────────────────────
+// Replaces the BAKED_BIN_ID placeholder and triggers download
+// User uploads this file to GitHub — everyone then reads it with no setup needed
+var _rawHTML='';
+document.addEventListener('DOMContentLoaded',function(){
+  _rawHTML='<!DOCTYPE html>
+'+document.documentElement.outerHTML;
+});
+
+function downloadConfigured(){
+  const binToUse = _newBinId || JB_BIN;
+  if(!binToUse){ alert('No bin ID found. Please complete setup first.'); return; }
+  const marker="''; /* %%BIN_ID%% */";
+  const replacement="'"+binToUse+"'; /* %%BIN_ID%% */";
+  let src=_rawHTML||('<!DOCTYPE html>
+'+document.documentElement.outerHTML);
+  if(src.indexOf(marker)===-1){alert('Could not find marker. Please reload and try again.');return;}
+  src=src.replace(marker,replacement);
+  const blob=new Blob([src],{type:'text/html;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url; a.download='cpts_tracker_configured.html';
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
+  // Also store key locally so this device can edit right away
+  if(_newKey){ localStorage.setItem(LS_KEY,_newKey); JB_KEY=_newKey; }
+  if(_newBinId) JB_BIN=_newBinId;
+  document.getElementById('dl-cfg-btn').style.display='none';
+  document.getElementById('success-overlay').style.display='none';
+  loadState();
+}
+
+// ── EDIT KEY ACTIVATION ───────────────────────────────────────────────────────
+// Editors (student / instructor) enter their master key once per device
+// Viewers see the data without any key — read is public
+function activateEditKey(){
+  const key=document.getElementById('edit-key-input').value.trim();
+  if(!key)return;
+  localStorage.setItem(LS_KEY,key);
+  JB_KEY=key;
+  document.getElementById('edit-key-bar').style.display='none';
+  document.getElementById('edit-key-err').textContent='';
+  syncStatus('ok','Edit mode active');
+}
+
+// ── LOAD ──────────────────────────────────────────────────────────────────────
 async function loadState(){
   syncStatus('spin','Loading...');
   try{
-    STATE = await jbRead();
+    STATE=await jbRead();
     syncStatus('ok','Live — '+new Date().toLocaleTimeString());
     applyState();
-  } catch(e){
+  }catch(e){
     syncStatus('err','Load failed — retrying...');
-    setTimeout(loadState, 5000);
+    setTimeout(loadState,8000);
   }
 }
 
-// ── SAVE to JSONBin ───────────────────────────────────────────────────────────
+// ── SAVE ──────────────────────────────────────────────────────────────────────
 async function saveState(){
-  if(_saving) return;
-  _saving = true;
+  if(_saving)return; _saving=true;
   syncStatus('spin','Saving...');
   try{
     await jbWrite(STATE);
     syncStatus('ok','Saved — '+new Date().toLocaleTimeString());
-  } catch(e){
-    syncStatus('err','Save failed');
-  } finally{
-    _saving=false;
-  }
+  }catch(e){
+    syncStatus('err','Save failed: '+e.message);
+  }finally{_saving=false;}
 }
 
 // ── RENDER ────────────────────────────────────────────────────────────────────
 function applyState(){
-  let done=0, late=0;
+  let done=0,late=0;
   SCHED.forEach(m=>{
     const actStr=STATE[m.id];
-    const dot  = document.getElementById('dot-'+m.id);
-    const ba   = document.getElementById('ba-'+m.id);
-    const tdA  = document.getElementById('td-act-'+m.id);
-    const tdV  = document.getElementById('td-var-'+m.id);
-    const tbtn = document.getElementById('tbtn-'+m.id);
-    const pe   = pDate(m.pe);
+    const dot=document.getElementById('dot-'+m.id);
+    const ba=document.getElementById('ba-'+m.id);
+    const tdA=document.getElementById('td-act-'+m.id);
+    const tdV=document.getElementById('td-var-'+m.id);
+    const tbtn=document.getElementById('tbtn-'+m.id);
+    const pe=pDate(m.pe);
     if(actStr){
-      done++;
-      const ad=pDate(actStr), isLate=ad>pe;
-      if(isLate) late++;
+      done++; const ad=pDate(actStr),isLate=ad>pe; if(isLate)late++;
       const diff=dBet(pe,ad);
       dot.className='sdot '+(isLate?'late':'good');
       const w=xPct(new Date(ad.getTime()+MS))-m.left;
-      ba.style.left=m.left.toFixed(4)+'%';
-      ba.style.width=Math.max(0.5,w).toFixed(4)+'%';
-      ba.className='bar bar-actual '+(isLate?'late':'good');
-      ba.style.display='block';
-      tdA.textContent=fmt(ad);
-      tdA.style.color=isLate?'var(--red)':'var(--green)';
-      tdA.style.fontWeight='500';
-      tdV.innerHTML=diff<0?'<span class="vtag vt-e">'+Math.abs(diff)+'d early</span>':
-                    diff===0?'<span class="vtag vt-o">On time</span>':
-                    '<span class="vtag vt-l">'+diff+'d late</span>';
+      ba.style.left=m.left.toFixed(4)+'%'; ba.style.width=Math.max(0.5,w).toFixed(4)+'%';
+      ba.className='bar bar-actual '+(isLate?'late':'good'); ba.style.display='block';
+      tdA.textContent=fmt(ad); tdA.style.color=isLate?'var(--red)':'var(--green)'; tdA.style.fontWeight='500';
+      tdV.innerHTML=diff<0?'<span class="vtag vt-e">'+Math.abs(diff)+'d early</span>':diff===0?'<span class="vtag vt-o">On time</span>':'<span class="vtag vt-l">'+diff+'d late</span>';
       if(tbtn){tbtn.className='tbtn done';tbtn.innerHTML='&#9998; Edit';}
-    } else {
-      dot.className='sdot idle';
-      ba.style.display='none';
-      tdA.innerHTML='&mdash;'; tdA.style.color='var(--muted)'; tdA.style.fontWeight='400';
-      tdV.innerHTML='<span class="vtag vt-p">Pending</span>';
+    }else{
+      dot.className='sdot idle'; ba.style.display='none';
+      if(tdA){tdA.innerHTML='&mdash;';tdA.style.color='var(--muted)';tdA.style.fontWeight='400';}
+      if(tdV) tdV.innerHTML='<span class="vtag vt-p">Pending</span>';
       if(tbtn){tbtn.className='tbtn';tbtn.textContent='Mark Complete';}
     }
   });
@@ -427,26 +465,27 @@ function applyState(){
   const dl=Math.max(0,dBet(today,DEADLINE));
   document.getElementById('sv-days').textContent=dl;
   document.getElementById('prog-days').textContent=dl+' days remaining';
+  // Show edit key bar only to people without a key (viewers don't need it)
+  if(!JB_KEY && JB_BIN) document.getElementById('edit-key-bar').style.display='flex';
 }
 
 // ── TOOLTIP ───────────────────────────────────────────────────────────────────
 function showTT(e,id){
-  const m=SCHED.find(x=>x.id===id); if(!m) return;
-  const actStr=STATE[id], pe=pDate(m.pe);
+  const m=SCHED.find(x=>x.id===id);if(!m)return;
+  const actStr=STATE[id],pe=pDate(m.pe);
   let body='<div class="tt-r"><span class="tt-k">Hours</span><span class="tt-v">'+m.h+'h</span></div>'+
     '<div class="tt-r"><span class="tt-k">Plan Start</span><span class="tt-v">'+fmt(pDate(m.ps))+'</span></div>'+
     '<div class="tt-r"><span class="tt-k">Plan End</span><span class="tt-v">'+fmt(pe)+'</span></div>';
   if(actStr){
-    const ad=pDate(actStr),diff=dBet(pe,ad);
-    const cls=diff<0?'g':diff===0?'n':'r';
+    const ad=pDate(actStr),diff=dBet(pe,ad),cls=diff<0?'g':diff===0?'n':'r';
     const lbl=diff<0?(Math.abs(diff)+'d early'):diff===0?'On time':(diff+'d late');
     body+='<hr style="border:none;border-top:1px solid var(--bdr);margin:5px 0">'+
       '<div class="tt-r"><span class="tt-k">Actual</span><span class="tt-v '+cls+'">'+fmt(ad)+'</span></div>'+
       '<div class="tt-r"><span class="tt-k">Variance</span><span class="tt-v '+cls+'">'+lbl+'</span></div>';
   }
-  document.getElementById('tt-title').textContent='#'+id+' · '+m.name;
+  document.getElementById('tt-title').textContent='#'+id+'·'+m.name;
   document.getElementById('tt-body').innerHTML=body;
-  document.getElementById('tt-hint').textContent=actStr?'Click to edit':'Click to mark complete';
+  document.getElementById('tt-hint').textContent=JB_KEY?(actStr?'Click to edit':'Click to mark complete'):'View only — unlock editing above';
   document.getElementById('tt').style.display='block';
   moveTT(e);
 }
@@ -459,45 +498,54 @@ function hideTT(){document.getElementById('tt').style.display='none'}
 
 // ── MODAL ─────────────────────────────────────────────────────────────────────
 function openModal(id){
+  if(!JB_KEY){
+    document.getElementById('edit-key-input').focus();
+    return;
+  }
   ACTIVE=id;
-  const m=SCHED.find(x=>x.id===id), ex=STATE[id];
+  const m=SCHED.find(x=>x.id===id),ex=STATE[id];
   document.getElementById('m-title').textContent=ex?'Edit Completion Date':'Mark Module Complete';
-  document.getElementById('m-mod').textContent='#'+m.id+' · '+m.name;
-  document.getElementById('m-info').innerHTML='<strong>Planned:</strong> '+fmt(pDate(m.ps))+' → '+fmt(pDate(m.pe))+'<br><strong>Hours:</strong> '+m.h+'h · '+Math.ceil(m.h/HPD)+' working days';
+  document.getElementById('m-mod').textContent='#'+m.id+'·'+m.name;
+  document.getElementById('m-info').innerHTML='<strong>Planned:</strong> '+fmt(pDate(m.ps))+'→'+fmt(pDate(m.pe))+'<br><strong>Hours:</strong> '+m.h+'h · '+Math.ceil(m.h/HPD)+' working days';
   document.getElementById('m-date').value=ex||iso(new Date());
   document.getElementById('m-clear').style.display=ex?'inline-block':'none';
   document.getElementById('mbg').classList.add('open');
 }
 function closeModal(){document.getElementById('mbg').classList.remove('open');ACTIVE=null}
 async function saveMod(){
-  if(!ACTIVE) return;
+  if(!ACTIVE)return;
   const v=document.getElementById('m-date').value;
   if(!v){alert('Please select a date.');return;}
-  STATE[ACTIVE]=v;
-  closeModal();
-  applyState();
-  await saveState();
+  STATE[ACTIVE]=v; closeModal(); applyState(); await saveState();
 }
 async function clearMod(){
-  if(!ACTIVE) return;
-  if(!confirm('Remove completion date for this module?')) return;
-  delete STATE[ACTIVE];
-  closeModal();
-  applyState();
-  await saveState();
+  if(!ACTIVE)return;
+  if(!confirm('Remove completion date?'))return;
+  delete STATE[ACTIVE]; closeModal(); applyState(); await saveState();
 }
 document.getElementById('mbg').addEventListener('click',function(e){if(e.target===this)closeModal()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 
-// ── INIT ─────────────────────────────────────────────────────────────────────
-window.addEventListener('DOMContentLoaded', function(){
-  if(JB_KEY && JB_BIN){
-    document.getElementById('setup-overlay').style.display='none';
+// ── INIT ──────────────────────────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded',function(){
+  if(!BAKED_BIN_ID){
+    // Check if bin ID was saved in localStorage from a previous setup
+    const savedBin = localStorage.getItem('cpts_jb_bin');
+    if(savedBin){
+      JB_BIN = savedBin;
+      // Show the download button so user can get the configured file
+      document.getElementById('dl-cfg-btn').style.display='block';
+      loadState();
+      setInterval(loadState,60000);
+    } else {
+      document.getElementById('setup-overlay').style.display='flex';
+      syncStatus('err','Not configured');
+    }
+  }else{
+    // Configured — load data publicly, no key needed for reading
+    JB_BIN=BAKED_BIN_ID;
     loadState();
-    // Auto-refresh every 60 seconds for viewers
-    setInterval(loadState, 60000);
-  } else {
-    syncStatus('err','Not configured');
+    setInterval(loadState,60000);
   }
 });
 </script>

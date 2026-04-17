@@ -164,7 +164,7 @@ body{background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;min
     <input class="sinput" id="s-key" type="password" placeholder="$2a$10$...">
     <div class="setup-err" id="setup-err"></div>
 
-    <button class="sbtn" id="setup-btn" onclick="doSetup()">&#128279; Connect &amp; Start</button>
+    <button class="sbtn" id="setup-btn" onclick="doSetup()">Connect &amp; Start</button>
   </div>
 </div>
 
@@ -298,10 +298,14 @@ function syncStatus(state, msg){
 async function jbCreate(key){
   const r = await fetch(JSONBIN_URL, {
     method:'POST',
-    headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Name':'CPTS-Tracker','X-Bin-Private':'false'},
+    headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Name':'CPTS-Tracker'},
     body: JSON.stringify({})
   });
-  if(!r.ok) throw new Error('HTTP '+r.status);
+  if(!r.ok){
+    let msg = 'HTTP '+r.status;
+    try{ const t=await r.text(); msg+=' — '+t.slice(0,120); }catch{}
+    throw new Error(msg);
+  }
   const d = await r.json();
   return d.metadata.id;
 }
@@ -341,8 +345,8 @@ async function doSetup(){
     syncStatus('ok','Connected');
     applyState();
   } catch(e){
-    err.textContent='Connection failed. Check your Master Key and try again.';
-    btn.disabled=false; btn.textContent='&#128279; Connect & Start';
+    err.textContent='Failed: ' + e.message;
+    btn.disabled=false; btn.textContent='Connect & Start';
   }
 }
 
